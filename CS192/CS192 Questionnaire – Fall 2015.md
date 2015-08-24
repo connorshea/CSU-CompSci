@@ -11,8 +11,7 @@
 	* My major will be either:
 		* ACT with Computing Technology concentration
 		* ACT with Human-Centered Computing concentration
-	* I am certain that I'd like to earn a degree in Computer Science, and would like to have a career as a User Interface Designer and Developer. My only problem is with the requirement of Calculus II by the Human-Centered Computing concentration, but not by the Computing Technology concentration.
-	* I'm also concerned that the value of an "Applied Computing Technologies" degree would be less than that of a "Computer Science" degree, for no good reason. CU Boulder has their Human-Centered Computing concentration under Computer Science, so I'm interested in knowing why it's separated at CSU.
+	* I am certain that I'd like to earn a degree in Computer Science, and would like to have a career as a User Interface Designer and Developer.
 
 
 3. For what college math (if any) do you already have credit? What math courses are you taking this semester?
