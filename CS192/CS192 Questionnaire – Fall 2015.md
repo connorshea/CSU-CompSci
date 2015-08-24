@@ -29,12 +29,10 @@
 		* ImageHex - ImageHex is a place to search, share, and commission images and other artwork. It uses the web framework Ruby on Rails, HTML, CSS (SCSS), and JavaScript (with jQuery).
 		* Fiction Dock - Fiction Dock is a central repository for people to write and share their fan fiction. It uses the same frameworks/languages as ImageHex, plus React.js.
 	* A redesign of PCGamingWiki - From February to August of 2015, I spent quite a bit of time overhauling the site to be more navigable and faster. It uses MediaWiki and PHP, with LESS as a CSS pre-processor.
-	* I designed and developed my personal website.
 	* I've also done Freelance Web Design/Development for a little over six months.
 	* I have experience with HTML, CSS/SCSS, JavaScript (with jQuery, mostly), Ruby on Rails, React.js, and PHP/MediaWiki.
 	* I have significant experience with OS X, moderate experience with Ubuntu Linux, and moderate experience with Windows.
-
-You can see the source code for a lot of these projects at https://github.com/connorshea
+	* You can see the source code for a lot of these projects at https://github.com/connorshea
 
 
 6. List any topics you hope we will cover in this course.
