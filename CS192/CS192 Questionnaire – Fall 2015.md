@@ -35,6 +35,7 @@
 
 
 6. List any topics you hope we will cover in this course.
+	* Using the Terminal
 	* Revision Control (e.g. Git, GitHub), _especially_ for group projects
 	* Contributing to open source software
 	* Python
