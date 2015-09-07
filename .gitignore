@@ -1,3 +1,9 @@
+## Don't include binaries:
+*.class
+
+## Don't include output files from IDEA:
+out/
+
 ## Directory-based project format:
 .idea/
 .project/
