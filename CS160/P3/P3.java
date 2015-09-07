@@ -25,19 +25,15 @@ public class P3 {
     Scanner gradeScanner = new Scanner(System.in);
 
     System.out.print("First assignment: ");
-
     assign0 = gradeScanner.nextDouble();
 
     System.out.print("Second assignment: ");
-
     assign1 = gradeScanner.nextDouble();
-
+    
     System.out.print("Third assignment: ");
-
     assign2 = gradeScanner.nextDouble();
-
+    
     System.out.print("First lab: ");
-
     lab0 = gradeScanner.nextDouble();
     
     System.out.print("Second lab: ");
@@ -75,6 +71,5 @@ public class P3 {
     System.out.printf("Exam average: %.2f\n", examAverage);
 
     System.out.printf("Class grade: %.2f", classGrade);
-
   }
 }
