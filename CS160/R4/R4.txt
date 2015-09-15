@@ -4,27 +4,32 @@
 // Class:  CS160
 // Email:  coshea@cs.colostate.edu
 
+
 ### Problems Involving Sets
 
 Given that:
 
 * N = {0,1,2,3,4,...} is the set of natural numbers
-
 * Z = {...,-2,-1,0,1,2,...} is the set of all integers
-
 * Z+ = {1,2,3,4,....} is the set of all positive integers
-
 * R is the set of all real numbers
+
 
 1. For each of these pairs of sets, determine whether the first is a subset of the second, the second a subset of the first, or neither is a subset of the other.
 
   a. The set of students in this class, and the set of students who are majoring in Computer Science in this class.
 
+  The second is the subset of the first.
 
+  
   b. the set of mammals, the set of land mammals.
+
+  The second is the subset of the first.
 
 
   c. the set of students studying computer science, the set of students studying mathematics
+
+  Neither is a subset of the other.
 
 
 
@@ -32,104 +37,143 @@ Given that:
 
   a. {1,3,5,7,2,4,6,7,8,10}
 
+  9
 
 
   b. x ∈ N | 0 ≤ x ≤ 64
 
+  65
 
 
   c. x ∈ Z | -10 < x < 10 and x is even
 
+  9
 
 
   d. x ∈ Z+ | x ≤ 6
 
+  6
 
 
   e. the set of primary colors
 
+  3
 
 
   f. the set of months in the year
 
+  12
 
 
   g. the set of midterms in this class
 
-
+  2
 
 
 3. List the members of these sets
 
-  a. (x | x is a real number such that x2 = 1)
+  a. (x | x is a real number such that x^2 = 1)
 
+  {-1, 1}
 
 
   b. (x | x is a positive integer less than 7)
 
+  {1, 2, 3, 4, 5, 6}
 
 
   c. (x | x is a squared integer and x < 99)
 
+  {0, 1, 4, 9, 16, 25, 36, 49, 64, 81}
 
 
-  d. (x | x is an integer such that x2 = 3)
+  d. (x | x is an integer such that x^2 = 3)
 
-
+  {}
 
 
 4. For the following sets: A = {4, 6, 8, 10}, B = {3, 4, 5, 6, 7, 9, 11};
 
   a. What is the cardinality of A and B?
 
+  9
+
+
   b. What is the union of A and B?
+
+  {3, 4, 5, 6, 7, 8, 9, 10, 11}  
+
 
   c. What is the intersection of A and B?
 
+  {4, 6}
+
+
   d. What is the complement of A, if the universal set is N?
+
+  All elements of N except for 4, 6, 8, and 10: {0, 1, 2, 3, 5, 7, 9, 11, 12, 13, ...}
+
 
   e. What is A minus B?
 
+  {8, 10}
+
+
   f. What is B minus A?
+
+  {3, 5, 7, 9, 11}
+
 
   g. Does A minus B = B minus A?
 
+  No
+
+
   h. The TA will draw a Venn diagram that shows why.
+
+
 
 ### Problems Involving Functions
 
 For each of the functions shown below, decide whether it is one-to-one (injective), then note whether it is (strictly) increasing, (strictly) decreasing, or neither.
 
 
-1. f(x) = Math.sqrt(x), where x and f(x) are defined as doubles and x ≥ 0. 
+  1. f(x) = Math.sqrt(x), where x and f(x) are defined as doubles and x ≥ 0. 
+
+  It is one-to-one, and is strictly increasing.
 
 
+  2. f(x) = Math.floor(x), where x is defined as a double and f(x) as an integer. 
 
-2. f(x) = Math.floor(x), where x is defined as a double and f(x) as an integer. 
-
-
-
-3. f(x) = x + 5, where x and f(x) are integers. 
+  f(x) = Math.floor(x) is not one-to-one, and it is increasing.
 
 
+  3. f(x) = x + 5, where x and f(x) are integers. 
 
-4. f(x) = x3, where x is an integer. 
-
-
-
-5. f(x) = x2 - 6x + 8, where x is an integer. 
+  It is a one-to-one function, and is strictly increasing.
 
 
+  4. f(x) = x^3, where x is an integer. 
 
-6. f(x) = x % 16, where x is a positive integer. 
-
-
-
-7. f(x) = x.length(), where x is a Java string with 4-8 characters, and f(x) is an integer. 
+  It is one-to-one, and it is strictly increasing.
 
 
+  5. f(x) = x^2 - 6x + 8, where x is an integer. 
 
-8. f(x) = x.substring(1, 6), where x is a Java string with exactly 8 characters. 
+  It is not one-to-one, and is neither increasing nor decreasing.
 
 
+  6. f(x) = x % 16, where x is a positive integer. 
+
+  It is not one-to-one, and is neither increasing nor decreasing.
+
+
+  7. f(x) = x.length(), where x is a Java string with 4-8 characters, and f(x) is an integer. 
+
+  It is not one-to-one, and is neither increasing nor decreasing.
+
+
+  8. f(x) = x.substring(1, 6), where x is a Java string with exactly 8 characters. 
+
+  It is not one-to-one, and is neither increasing nor decreasing.
 

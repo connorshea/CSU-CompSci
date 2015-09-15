@@ -11,6 +11,7 @@ public class P3 {
     double       assign0,
                  assign1,
                  assign2,
+                 assign3,
                     lab0,
                     lab1,
                     lab2,
@@ -32,6 +33,9 @@ public class P3 {
     
     System.out.print("Third assignment: ");
     assign2 = gradeScanner.nextDouble();
+
+    System.out.print("Fourth assignment: ");
+    assign3 = gradeScanner.nextDouble();
     
     System.out.print("First lab: ");
     lab0 = gradeScanner.nextDouble();
@@ -44,10 +48,6 @@ public class P3 {
 
     lab2 = gradeScanner.nextDouble();
 
-    System.out.print("Fourth lab: ");
-
-    lab3 = gradeScanner.nextDouble();
-
     System.out.print("First exam: ");
 
     exam0 = gradeScanner.nextDouble();
@@ -56,13 +56,13 @@ public class P3 {
 
     exam1 = gradeScanner.nextDouble();
 
-    assignAverage = ((assign0 + assign1 + assign2) / 3);
+    assignAverage = ((assign0 + assign1 + assign2 + assign3) / 4);
 
-    labAverage = ((lab0 + lab1 + lab2 + lab3) / 4);
+    labAverage = ((lab0 + lab1 + lab2) / 3);
 
     examAverage = ((exam0 + exam1) / 2);
 
-    classGrade = (assignAverage * 0.3) + (labAverage * 0.2) + (examAverage * 0.5);
+    classGrade = (assignAverage * 0.25) + (labAverage * 0.15) + (examAverage * 0.6);
 
     System.out.printf("Assignment average: %.2f\n", assignAverage);
 
@@ -70,6 +70,6 @@ public class P3 {
 
     System.out.printf("Exam average: %.2f\n", examAverage);
 
-    System.out.printf("Class grade: %.2f", classGrade);
+    System.out.printf("Class total: %.2f\n", classGrade);
   }
 }
