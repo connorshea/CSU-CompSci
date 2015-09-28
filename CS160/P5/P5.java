@@ -91,7 +91,7 @@ public class P5 {
     do {
       result = result * number;
       ++loop;
-    } while(loop != exponent);
+    } while (loop != exponent);
 
     return result;
   }
