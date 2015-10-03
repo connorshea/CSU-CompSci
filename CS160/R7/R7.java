@@ -7,7 +7,7 @@
 
 public class R7 {
   public static boolean and(boolean b0, boolean b1) {
-    return b0 & b1;
+    return b0 && b1;
   }
 
   public static boolean or(boolean b0, boolean b1) {
@@ -19,7 +19,7 @@ public class R7 {
   }
 
   public static boolean nand(boolean b0, boolean b1) {
-    return !(b0 & b1);
+    return !(b0 && b1);
   }
 
   public static boolean nor(boolean b0, boolean b1) {
@@ -27,7 +27,7 @@ public class R7 {
   }
 
   public static boolean special(boolean b0, boolean b1) {
-    return !(b0 & b1) ^ (b0 || b1);
+    return !(b0 && b1) ^ (b0 || b1);
   }
 
   public static void printHeader(String logicalOperatorName) {
