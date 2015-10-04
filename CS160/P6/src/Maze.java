@@ -219,19 +219,19 @@ public class Maze {
 		frame.setAlwaysOnTop(true);
 
 		// Load and scale images
-		ImageIcon icon0 = new ImageIcon("Chihiro.png");
+		ImageIcon icon0 = new ImageIcon("../Chihiro.png");
 		Image image0 = icon0.getImage();
 		chihiro = image0.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
 
-		ImageIcon icon1 = new ImageIcon("Haku.png");
+		ImageIcon icon1 = new ImageIcon("../Haku.png");
 		Image image1 = icon1.getImage();
 		haku = image1.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
 
-		ImageIcon icon2 = new ImageIcon("Yubaba.png");
+		ImageIcon icon2 = new ImageIcon("../Yubaba.png");
 		Image image2 = icon2.getImage();
 		yubaba = image2.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
 
-		ImageIcon icon3 = new ImageIcon("Success.png");
+		ImageIcon icon3 = new ImageIcon("../Success.png");
 		Image image3 = icon3.getImage();
 		success = image3.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
 
