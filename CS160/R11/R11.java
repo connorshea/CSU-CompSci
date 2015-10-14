@@ -18,6 +18,17 @@ public class R11 {
     return average;
   }
 
+  public static double[] reverseArray(double[] array) {
+    double[] reversedArray = new double[array.length];
+    int j = 0;
+    for (int i = array.length - 1; i >= 0; i--) {
+      reversedArray[j] = array[i];
+      j++;
+    }
+
+    return reversedArray;
+  }
+
   public static void main(String[] args) {
     double[] grades = {81.2, 92.5, 48.9, 78.8};
     int[] numbers = {12, 42, 33, 67, 92, 58};
@@ -30,7 +41,7 @@ public class R11 {
     System.out.println(grades[1]);
     System.out.println(numbers[2]);
     numbers[0] = 99;
-    grades[0] = 90.5;
+    grades[grades.length - 1] = 90.5;
     arguments[6] = "HelloThere";
 
     for (int i = 0; i < grades.length; i++) {
@@ -53,5 +64,9 @@ public class R11 {
     System.out.println( Arrays.toString(arguments) );
 
     System.out.printf("%.3f\n", arrayAverage(grades));
+
+    double[] reversedGrades = reverseArray(grades);
+
+    System.out.println( Arrays.toString(reversedGrades) );
   }
 }
