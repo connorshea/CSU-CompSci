@@ -1,0 +1,102 @@
+// R12 Assignment
+// Author: Connor Shea
+// Date:   10/21/2015
+// Class:  CS160
+// Email:  coshea@cs.colostate.edu
+// https://www.cs.colostate.edu/~cs160/.Fall15/recitations/R12.html
+
+1) Translate the given statement into propositional logic using the propositions provided: You can ride the Max bus system if you have a student card or if you have paid the fare. Express your answer in terms of p: "You can ride the Max bus system," q: "You have a student card", and s: "You have paid the fare."
+q ∨ s → p
+
+
+// Use truth tables to prove these equivalences, and state the name: 
+2) a) p ∧ T is equivalent to p
+
+p | T | p ∧ T
+0 | 1 | 0
+1 | 1 | 1
+
+Simplification
+
+
+b) p ∧ F is equivalent to F
+
+p | F | p ∧ F
+0 | 0 | 0
+1 | 0 | 0
+
+Simplification
+
+
+c) p ∨ ¬p is equivalent to T
+
+p | ¬p | p ∨ ¬p
+1 | 0  | 1
+0 | 1  | 1
+
+Modus Tollens
+
+
+d) p ∨ (p ∧ q) is equivalent to p
+
+p | q | p ∧ q | p ∨ (p ∧ q)
+0 | 0 | 0     | 0
+0 | 1 | 0     | 0
+1 | 0 | 0     | 1
+1 | 1 | 1     | 1
+
+Absorption Laws
+
+
+3) Use De Morgan's law to find the negation of each of the following conditions in Java, and shown the resulting condition in Java: 
+
+a) (index < 10 || index > 20)
+
+Answer: (index >= 10 && index <= 20)
+
+b) (p != false && q == false)
+
+Answer: (p == false || q != false)
+
+
+4) Show that the following conditional statement is a tautology by using truth tables. 
+
+¬p → (p → q)
+
+p | q | ¬p | p → q | ¬p → (p → q)
+0 | 0 | 1  | 1     | 1
+0 | 1 | 1  | 1     | 1
+1 | 0 | 0  | 0     | 1
+1 | 1 | 0  | 1     | 1
+
+
+5) Define tautology, contradiction, and contingency. 
+- A tautology is a proposition that will always be true.
+- A contradiction is a compound proposition that will always be false.
+- A contingency is neither true nor false.
+
+
+6) Show the converse, contrapositive, and inverse of p → q.
+- Converse: q → p
+- Contrapositive: ¬q → ¬p
+- Inverse: ¬p → ¬q
+
+
+7) Prove the following logical equivalence using only the logical equivalences and laws on the Logic Sheet. 
+
+p ∨ (¬p ∧ q) ≡ (p ∨ q)
+
+Proof:
+Step 1. p ∨ (¬p ∧ q), then apply Distributive Law
+Step 2. (p ∨ ¬p) ∧ (p ∨ q), then apply Absorption Law
+Step 3. T ∧ (p ∨ q)
+
+
+8) Prove the logical equivalence above using a truth table.
+
+p | q | ¬p ∧ q | p ∨ (¬p ∧ q) | p ∨ q | p ∨ (¬p ∧ q) ≡ (p ∨ q)
+0 | 0 | 0      | 0            | 0     | 1
+0 | 1 | 1      | 1            | 1     | 1
+1 | 0 | 0      | 1            | 1     | 1
+1 | 1 | 0      | 1            | 1     | 1
+

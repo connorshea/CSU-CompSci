@@ -1,0 +1,74 @@
+// R13 Assignment
+// Author: Connor Shea
+// Date:   10/23/2015
+// Class:  CS160
+// Email:  coshea@cs.colostate.edu
+// https://www.cs.colostate.edu/~cs160/.Fall15/recitations/R13.html
+
+
+1) Prove the following Rules of Inference using a truth table, and state which rows prove the equivalence.
+
+Modus Tollens
+p | q | ¬q | p → q | ¬p
+0 | 0 | 1  | 1     | 1
+0 | 1 | 0  | 1     | 1
+1 | 0 | 1  | 0     | 0
+1 | 1 | 0  | 1     | 0
+
+The First Row proves equivalence.
+
+
+Implication Law
+p | q | p → q | ¬q → ¬p
+0 | 0 | 1     | 1
+0 | 1 | 1     | 1
+1 | 0 | 0     | 0
+1 | 1 | 1     | 1
+
+All rows prove equivalence.
+
+
+2) Given:
+p ⊕ q
+p ↔ r
+¬r
+Prove: q
+
+Step       | Reason
+p ⊕ q      | Premise
+p ↔ r      | Premise
+¬r         | Premise
+¬p         | Biconditional Laws (2, 3)
+q          | Exclusive Disjunction (1, 4)
+
+
+3) Given:
+p → q
+r → p
+r
+Prove: q ∧ p
+
+Step       | Reason
+p → q      | Premise
+r → p      | Premise
+r          | Premise
+p          | Modus Ponens (2, 3)
+q          | Modus Ponens (4, 1)
+q ∧ p      | Conjunction
+
+
+4) Given:
+p ∧ q
+Prove: q ∨ r
+
+Step       | Reason
+p ∧ q      | Premise
+q          | Simplification
+q ∨ r      | Disjunctive Syllogism (1, 2)
+
+
+5) Which of the following are logically equivalent to (p ∧ q) → r? 
+
+A
+
+
