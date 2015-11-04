@@ -5,6 +5,8 @@
 // Email:  coshea@cs.colostate.edu
 // http://www.cs.colostate.edu/~cs160/.Fall15/assignments/P9.html
 
+import java.io.*;
+import java.util.Scanner;
 import Plotter;
 
 public class P9 implements Interface {
@@ -18,8 +20,12 @@ public class P9 implements Interface {
   
   @Override
   public boolean readFile(String filename) {
-	  // TODO Auto-generated method stub
-	  return false;
+	  try {
+      File file = new File(filename);
+  	  Scanner scan = new Scanner(file);
+    } catch (IOException e) {
+      System.err.println("Caught IOException: " + e.getMessage());
+    }
   }
   
   @Override
