@@ -37,7 +37,7 @@ public class P9 implements Interface {
       pieDataElements = new double[numPieDataItems];
       
       for (int i = 0; i < numPieDataItems; i++) {
-    	pieDataElements[i] = scan.nextDouble();
+        pieDataElements[i] = scan.nextDouble();
       }
       
       barDataElements1 = new double[numBarDataItems];
@@ -49,7 +49,7 @@ public class P9 implements Interface {
       barDataElements2 = new double[numBarDataItems];
       
       for (int i = 0; i < numBarDataItems; i++) {
-    	barDataElements2[i] = scan.nextDouble();
+        barDataElements2[i] = scan.nextDouble();
       }
       
       lineDataElements1 = new double[numLineDataItems];
@@ -96,16 +96,41 @@ public class P9 implements Interface {
   @Override
   public String[] getLabels(Interface.eType type) {
 	  if (type == eType.PIECHART) {
-      
+      return pieDataLabels;
     } else {
   	  return null;
     }
-
-    return null;
   }
   
   @Override
   public double[] getData(Interface.eType type, int series) {
-	  return null;
+    if (type == eType.PIECHART) {
+      return pieDataElements;
+    } else if (type == eType.BARCHART) {
+
+      switch (series) {
+        case 0:
+          return barDataElements1;
+        case 1: 
+          return barDataElements2;
+        default:
+          break;
+      }
+
+    } else if (type == eType.LINEGRAPH) {
+
+      switch (series) {
+        case 0:
+          return lineDataElements1;
+        case 1: 
+          return lineDataElements2;
+        case 2:
+          return lineDataElements3;
+        default:
+          break;
+      }
+    }
+	
+  	return null;
   }
 }
