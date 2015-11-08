@@ -9,8 +9,35 @@ import java.io.*;
 import java.util.Scanner;
 
 public class R15 {
-  public static void readFile(String inputFile) {
+  public static void readFile(String filename) {
+    try {
+      File file = new File(filename);
+      Scanner scan = new Scanner(file);
 
+      do {
+        if (scan.next().equals("circle:")) {
+          double circleRadius = scan.nextDouble();
+          System.out.printf("Circle\n computeAreaCircle()\n Radius: %.2f\n Area: %.2f\n", circleRadius, computeAreaCircle(circleRadius));
+        }
+
+        if (scan.next().equals("rectangle:")) {
+          double rectangleHeight = scan.nextDouble();
+          double rectangleWidth = scan.nextDouble();
+          System.out.printf("Rectangle\n computeAreaRectangle()\n Input: %.2f, %.2f\n Area: %.2f\n", rectangleHeight, rectangleWidth, computeAreaRectangle(rectangleHeight, rectangleWidth));
+        }
+
+        if (scan.next().equals("triangle:")) {
+          double triangleHeight = scan.nextDouble();
+          double triangleWidth = scan.nextDouble();
+          System.out.printf("Triangle\n computeAreaTriangle()\n Input: %.2f, %.2f\n Area: %.2f\n", triangleHeight, triangleWidth, computeAreaTriangle(triangleHeight, triangleWidth));
+        }
+      } while ( scan.hasNextLine() );
+
+      scan.close();
+
+    } catch (IOException e) {
+      System.err.println("Caught IOException: " + e.getMessage());
+    }
   }
 
   public static void writeFile(String outputFile) {
@@ -55,72 +82,6 @@ public class R15 {
   public static void main(String[] args) {
     readFile(args[0]);
     writeFile(args[1]);
-    System.out.println(computeAreaCircle(5));
-    System.out.println(computeAreaRectangle(5, 5));
-    System.out.println(computeAreaTriangle(5, 5));
   }
 }
-
-
-
-
-
-
-
-
-
-
-// // Example of reading a file
-// try {
-//   // make sure TA explains this line and the try/catch block
-//   Scanner fileReader = new Scanner(new File(args[0]));
-  
-//   // Examples: (not meant to be run as a program)
-//   String example1a = fileReader.next();
-//   String example1b = fileReader.nextLine();
-//   double example2 = fileReader.nextDouble();
-//   int example3 = fileReader.nextInt();
-//   char example4 = fileReader.next().charAt(0);
-  
-//   if (fileReader.hasNext()) {
-//     // I can grab a string token safely
-//     String example5 = fileReader.next();
-//   }
-  
-//   if (fileReader.hasNextDouble()) {
-//     // I can grab a double safely
-//     double example6 = fileReader.nextDouble();
-//   }
-  
-//   if (fileReader.hasNextInt()) {
-//     // I can grab a int safely
-//     int example7 = fileReader.nextInt();
-//   }
-  
-//   fileReader.close();
-  
-// } catch (FileNotFoundException e) {
-//   System.out.println("ERROR!");
-//   System.exit(0);
-// }
-
-
-// // Example of writing to a file
-// try {
-//   // make sure TA explains this line and the try/catch block
-//   PrintWriter fileOutput = new PrintWriter(new File(args[1]));
-  
-//   // Examples:
-//   fileOutput.println("Hey...");
-//   fileOutput.print("I've seen...");
-//   fileOutput.print("this stuff before.\n");
-//   fileOutput.printf("%.3f\n", 3.456789);
-  
-//   // Important! Save the file
-//   fileOutput.close();
-  
-// } catch (FileNotFoundException e) {
-//   System.out.println("ERROR!");
-//   System.exit(0);
-// }
 

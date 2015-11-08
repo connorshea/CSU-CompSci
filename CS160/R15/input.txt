@@ -1,6 +1,5 @@
-Hello! What's up? 3 a
-3.0
-3
-a
-c
-Hello!
+circle: 3
+rectangle: 5 12
+triangle: 3 4
+circle: 3
+
