@@ -36,3 +36,4 @@ out/
 *.iws
 *.iml
 
+*/*/.gitignore
