@@ -11,7 +11,7 @@ def instructions(response):
     # Use a string method to make response all one case
     answer = input()
     # Use an if statement to check if the response is "yes"
-    if lower(answer) == "yes":
+    if answer.lower() == "yes":
         rps.print_instructions(instruction_string)
 
 
