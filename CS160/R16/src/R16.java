@@ -13,8 +13,8 @@ public class R16 implements RecitationInterface {
 	public int[][] imageData;
 	
 	public R16() {
-      plObject = new PictureLibrary();
-    }
+    plObject = new PictureLibrary();
+  }
 
 	@Override
 	public void readImage(String inFile) {
