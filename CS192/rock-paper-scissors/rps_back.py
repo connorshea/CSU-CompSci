@@ -25,19 +25,19 @@ def check_name(name):
 
     error = "Something's wrong"
 
-    if len(name) > 11:
+    # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
+    # any condition call rps.quit_game with an appropriate error message.
+    if len(name) > 10:
         rps.quit_game(error)
-    if len(name) < 1:
+    if len(name) < 2:
         rps.quit_game(error)
     if name.find(' ') == True:
         rps.quit_game(error)
     if name.istitle() == False:
         rps.quit_game(error)
 
-    # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
-    # any condition call rps.quit_game with an appropriate error message.
 
-    # return the variable name once have checked all name requirements
+    # return the variable name once you have checked all name requirements
     return name
 
 
@@ -61,7 +61,6 @@ def check_times_to_play(num):
     # Note: use function int, to convert num to integer when using it to compare to another integer, i.e. int(num)
 
     # return the variable num once have checked requirements
-
 
 
 
