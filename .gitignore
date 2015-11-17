@@ -37,3 +37,6 @@ out/
 *.iml
 
 */*/.gitignore
+
+# Ignore compiled Python files
+*.pyc
