@@ -126,7 +126,7 @@ def play_match():
     # Use a while or for loop to call play_game the correct amount of times
     count = 0
     while count < num_times:
-        game_winner = play_game(name)
+        game_winner = play_game(player_name)
         # Now use an if statement to increment total for winner
         # i.e. will increment either ties, player_wins, or computer_winds
         count = count + 1
