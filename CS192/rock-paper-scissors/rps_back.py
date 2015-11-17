@@ -6,13 +6,15 @@ import rps
 def instructions(response):
     # Add to instruction_string so that it contains information on
     # how to play rock-paper-scissors
-    instruction_string = "Rock beats scissors. Scissors beats paper. Paper beats rock. If understood 'yes' if not 'no'."
+    instruction_string = "Choose rock, paper, or scissors from the buttons. "
+    instruction_string += "The computer will then choose a move. "
+    instruction_string += "Rock beats scissors, scissors beats paper, and paper beats rock."
 
     # Use a string method to make response all one case
-    answer = input()
+    response = response.lower()
     # Use an if statement to check if the response is "yes"
-    if answer.lower() == "yes":
-        rps.print_instructions(instruction_string)
+    if response == "yes":
+    	rps.print_instructions(instruction_string)
 
 
 
@@ -21,15 +23,15 @@ def instructions(response):
 # Return requirement: name
 def check_name(name):
 
-    error = "Somethings wrong"
+    error = "Something's wrong"
 
-    if len(name) < 11:
+    if len(name) > 11:
         rps.quit_game(error)
-    if len(name) > 1:
+    if len(name) < 1:
         rps.quit_game(error)
-    if name.find(' ') == true:
+    if name.find(' ') == True:
         rps.quit_game(error)
-    if name.istitle() == false:
+    if name.istitle() == False:
         rps.quit_game(error)
 
     # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
@@ -54,7 +56,7 @@ def check_times_to_play(num):
     else:
         rps.quit_game(error)
 
-    # If 'num' does not meet requirements call rps.quit_game with an error
+    # If 'num' does not meet requirements call rps.quit_game with an error 
     # message (the variable 'error.')
     # Note: use function int, to convert num to integer when using it to compare to another integer, i.e. int(num)
 
@@ -76,7 +78,15 @@ def play_game(name):
         who_won = "Tie"
     elif ((player_move == 'rock') and (string_choice == 'paper')):
         who_won = "Computer"
+    elif ((player_move == 'rock') and (string_choice == 'scissors')):
+        who_won = "Player"
     elif ((player_move == 'paper') and (string_choice == 'scissors')):
+        who_won = "Computer"
+    elif ((player_move == 'paper') and (string_choice == 'rock')):
+        who_won = "Player"
+    elif ((player_move == 'scissors') and (string_choice == 'paper')):
+        who_won = "Player"
+    elif ((player_move == 'scissors') and (string_choice == 'rock')):
         who_won = "Computer"
 
     # After determines who won, build a results string.
@@ -90,6 +100,7 @@ def play_game(name):
 
     # return the variable who_won
     return who_won
+  
 
 
 def play_match():
@@ -130,6 +141,5 @@ def play_match():
 # Create a graph as we did in the previous lab
 def make_graph(name, player_wins, comp_wins, ties):
     print "Not implemented yet"
-
 
 
