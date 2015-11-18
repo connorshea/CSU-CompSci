@@ -1,13 +1,15 @@
 import random
 import matplotlib.pyplot as plt
 import rps
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def instructions(response):
     # Add to instruction_string so that it contains information on
     # how to play rock-paper-scissors
     instruction_string = "Choose rock, paper, or scissors from the buttons. "
-    instruction_string += "The computer will then choose a move. "
+    instruction_string += "The computer whil then choose a move. "
     instruction_string += "Rock beats scissors, scissors beats paper, and paper beats rock."
 
     # Use a string method to make response all one case
@@ -23,21 +25,19 @@ def instructions(response):
 # Return requirement: name
 def check_name(name):
 
-    error = "Something's wrong"
+    if len(name) > 10:
+        rps.quit_game("Name cannot be more than 10 characters long.")
+    if len(name) < 2:
+	rps.quit_game("Name must be at least 2 characters long.")
+    if name.find(' ') != -1:
+	rps.quit_game("Name cannot have spaces.")
+    if name.istitle() == False:
+	rps.quit_game("Name must be title case.")
 
     # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
     # any condition call rps.quit_game with an appropriate error message.
-    if len(name) > 10:
-        rps.quit_game(error)
-    if len(name) < 2:
-        rps.quit_game(error)
-    if name.find(' ') == True:
-        rps.quit_game(error)
-    if name.istitle() == False:
-        rps.quit_game(error)
 
-
-    # return the variable name once you have checked all name requirements
+    # return the variable name once have checked all name requirements
     return name
 
 
@@ -51,9 +51,7 @@ def check_times_to_play(num):
 
     # Check that 'num' meets the requirements above.
 
-    if (2 < int(num)) and (int(num) < 21):
-        return num
-    else:
+    if (2 > int(num)) or (int(num) > 21):
         rps.quit_game(error)
 
     # If 'num' does not meet requirements call rps.quit_game with an error 
@@ -61,6 +59,8 @@ def check_times_to_play(num):
     # Note: use function int, to convert num to integer when using it to compare to another integer, i.e. int(num)
 
     # return the variable num once have checked requirements
+    return int(num)
+
 
 
 
@@ -70,32 +70,66 @@ def play_game(name):
     player_move = rps.get_player_move()
 
     # Use the random library to chose a random move for the player.
-    random_moves = ['rock', 'paper', 'scissors']
+    random_moves = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
     string_choice = random.choice(random_moves)
 
+    who_won = "a"
     if (player_move == string_choice):
-        who_won = "Tie"
-    elif ((player_move == 'rock') and (string_choice == 'paper')):
-        who_won = "Computer"
-    elif ((player_move == 'rock') and (string_choice == 'scissors')):
-        who_won = "Player"
-    elif ((player_move == 'paper') and (string_choice == 'scissors')):
-        who_won = "Computer"
-    elif ((player_move == 'paper') and (string_choice == 'rock')):
-        who_won = "Player"
-    elif ((player_move == 'scissors') and (string_choice == 'paper')):
-        who_won = "Player"
-    elif ((player_move == 'scissors') and (string_choice == 'rock')):
-        who_won = "Computer"
+	who_won = 'Tie'
+    elif ((player_move == 'Rock') and (string_choice == 'Paper')):
+	who_won = 'Computer'
+    elif ((player_move == 'Rock') and (string_choice == 'Scissors')):
+	who_won = 'Player'
+    elif ((player_move == 'Rock') and (string_choice == 'Lizard')):
+	who_won = 'Player'
+    elif ((player_move == 'Rock') and (string_choice == 'Spock')):
+	who_won = 'Computer'
+    elif ((player_move == 'Paper') and (string_choice == 'Scissors')):
+	who_won = 'Computer'
+    elif ((player_move == 'Paper') and (string_choice == 'Rock')):
+	who_won = 'Player'
+    elif ((player_move == 'Paper') and (string_choice == 'Lizard')):
+	who_won = 'Computer'
+    elif ((player_move == 'Paper') and (string_choice == 'Spock')):
+	who_won = 'Player'
+    elif ((player_move == 'Scissors') and (string_choice == 'Paper')):
+	who_won = 'Player'
+    elif ((player_move == 'Scissors') and (string_choice == 'Rock')):
+	who_won = 'Computer'
+    elif ((player_move == 'Scissors') and (string_choice == 'Lizard')):
+	who_won = 'Player'
+    elif ((player_move == 'Scissors') and (string_choice == 'Spock')):
+	who_won = 'Computer'
+    elif ((player_move == 'Lizard') and (string_choice == 'Rock')):
+	who_won = 'Computer'
+    elif ((player_move == 'Lizard') and (string_choice == 'Paper')):
+	who_won = 'Player'
+    elif ((player_move == 'Lizard') and (string_choice == 'Scissors')):
+	who_won = 'Computer'
+    elif ((player_move == 'Lizard') and (string_choice == 'Spock')):
+	who_won = 'Player'
+    elif ((player_move == 'Spock') and (string_choice == 'Rock')):
+	who_won = 'Player'
+    elif ((player_move == 'Spock') and (string_choice == 'Paper')):
+	who_won = 'Computer'
+    elif ((player_move == 'Spock') and (string_choice == 'Scissors')):
+	who_won = 'Player'
+    elif ((player_move == 'Spock') and (string_choice == 'Lizard')):
+	who_won = 'Computer'
 
     # After determines who won, build a results string.
     # The next 3 lines partially builds this string. Complete for computer, add for tie, and add line for winner
     results = "Player played " + player_move
     results += "\n"
-    results += "Computer played "
+    results += "Computer played " + string_choice
+    results += "\n"
+    if (who_won is "Tie"):
+	results += who_won
+    else:
+	results += who_won + " is the winner."
 
     # Use rps.display_results to display the results string for the game.
-    rps.display_results
+    rps.display_results(results)
 
     # return the variable who_won
     return who_won
@@ -118,6 +152,7 @@ def play_match():
 
     
     # Use these variables to keep track of who won
+    
     ties = 0
     player_wins = 0
     computer_wins = 0
@@ -127,6 +162,14 @@ def play_match():
     count = 0
     while count < num_times:
         game_winner = play_game(player_name)
+	
+	if game_winner == "Computer":
+		computer_wins = computer_wins + 1
+	elif game_winner == "Player":
+		player_wins = player_wins + 1
+	elif game_winner == "Tie":
+		ties = ties + 1
+
         # Now use an if statement to increment total for winner
         # i.e. will increment either ties, player_wins, or computer_winds
         count = count + 1
@@ -139,6 +182,18 @@ def play_match():
 
 # Create a graph as we did in the previous lab
 def make_graph(name, player_wins, comp_wins, ties):
-    print "Not implemented yet"
+    people = (name, 'Computer', 'Ties')
+    wins = (player_wins, comp_wins, ties)
 
+    y_pos = np.arange(len(people))
+
+# Creation of the bar graph
+    plt.barh(y_pos, wins, align='center', alpha=0.4)
+    plt.yticks(y_pos, people)
+
+# Label and title
+    plt.xlabel('Wins per person')
+    plt.title('Games Bargraph')
+
+    plt.show()
 

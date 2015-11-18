@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 
 import sys
 from pygame.locals import *
@@ -322,7 +322,7 @@ def print_instructions(instructions):
 
 
 def get_player_move():
-    options = [Option("Rock", (50, 30), "rock.png"), Option("Paper", (50, 110), "paper.png"), Option("Scissors", (50, 190), "scissors.png"), Option("Quit", (15,280))]
+    options = [Option("Rock", (20, 30), "rock.png"), Option("Paper", (95, 30), "paper.png"), Option("Scissors", (170, 30), "scissors.png"), Option("Lizard", (245, 15), "lizard.png"), Option("Spock", (350, 15), "spock.png"), Option("Quit", (15,280))]
     return_move = ""
     while True:
         pygame.event.pump()
@@ -332,7 +332,7 @@ def get_player_move():
 
 	myfont = pygame.font.SysFont("Comic Sans MS", 22)
 
-        text = "Click on one of the three pictures for your move"
+        text = "Click on one of the five pictures for your move"
 	label = myfont.render(text,True,(0,0,0))
 	screen.blit(label, (15,5))
 
