@@ -322,7 +322,7 @@ def print_instructions(instructions):
 
 
 def get_player_move():
-    options = [Option("Rock", (20, 30), "rock.png"), Option("Paper", (95, 30), "paper.png"), Option("Scissors", (170, 30), "scissors.png"), Option("Lizard", (245, 15), "lizard.png"), Option("Spock", (350, 15), "spock.png"), Option("Quit", (15,280))]
+    options = [Option("Rock", (20, 45), "rock.png"), Option("Paper", (95, 45), "paper.png"), Option("Scissors", (20, 120), "scissors.png"), Option("Lizard", (95, 120), "lizard.png"), Option("Spock", (20, 200), "spock.png"), Option("Quit", (15,280))]
     return_move = ""
     while True:
         pygame.event.pump()
