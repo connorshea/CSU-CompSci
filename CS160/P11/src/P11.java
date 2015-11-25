@@ -40,6 +40,9 @@ public class P11 {
 		// Instantiate test class
 		TestInterface inter = new TestClass();
 		
+		
+		System.out.println("reverseString method");
+		
 		// It doesn't like numbers.
 		String testString = "420 blaze it";
 		System.out.println(inter.reverseString(testString));
@@ -47,6 +50,10 @@ public class P11 {
 		// Six character strings break it
 		String testString2 = "SIXSIX";
 		System.out.println(inter.reverseString(testString2));
+		
+		
+		System.out.println("");
+		System.out.println("duplicateString method");
 		
 		// What's this, an empty string?
 		String testString3 = "";
@@ -56,11 +63,12 @@ public class P11 {
 		String testString4 = "The moon landing really underscores the importance of space.";
 		System.out.println(inter.duplicateString(testString4));
 		
-		String testString5 = "LOLOLOLOLOLOLO";
-		System.out.println(inter.duplicateString(testString5));
+		
+		System.out.println("");
+		System.out.println("createStrings method");
 		
 		// It doesn't like X's
-		String testString6 = "SIX-SIX-SIX";
+		String testString6 = "SIX-SIX-SIx";
 		String[] stringArray = inter.createStrings(testString6);
 		System.out.println(Arrays.toString(stringArray));
 		
@@ -71,7 +79,8 @@ public class P11 {
 		
 		System.out.println(Arrays.toString(stringArrayAlt));
 		
-		String testString7 = "LoLolol";
+		// Adding numbers to the string causes it to use uppercase where it's supposed to use lowercase, and vice versa.
+		String testString7 = "test123";
 		String[] stringArray2 = inter.createStrings(testString7);
 		System.out.println(Arrays.toString(stringArray2));
 		
@@ -82,6 +91,29 @@ public class P11 {
 		
 		System.out.println(Arrays.toString(stringArrayAlt2));
 		
+		
+		System.out.println("");
+		System.out.println("cubeArray method");
+		
+		// 0.0 results in "-1.0" which is most certainly not the cube of 0.
+		double[] doubleArray = {0.0, 0.0, 2.0, 3.0, 10.0};
+		
+		System.out.println(Arrays.toString(doubleArray));
+		inter.cubeArray(doubleArray);
+		System.out.println(Arrays.toString(doubleArray));
+		
+		// Doesn't cube the final element if there are an odd number of elements in the array.
+		double[] doubleArray2 = {0.0, 1.0, 2.0, 3.0, 10.0, 8.0, 9.0};
+		
+		System.out.println(Arrays.toString(doubleArray2));
+		inter.cubeArray(doubleArray2);
+		System.out.println(Arrays.toString(doubleArray2));
+		
+		
+		System.out.println("");
+		System.out.println("sumArray method");
+		
+		// It doesn't like 0
 		int[] intArray = {0, 0, 2, 3, 10};
 		int sumArrayResult = inter.sumArray(intArray);
 		
@@ -94,17 +126,35 @@ public class P11 {
 		System.out.println(sumArrayResult);
 		System.out.println(sum);
 		
-		int[] intArray2 = {0, 0, 2, 3, 10, 99, 100, 500};
-		// If the intArray is already in order, it reverses it.
-		System.out.println(Arrays.toString(intArray2));
-		inter.sortArray(intArray2);
-		System.out.println(Arrays.toString(intArray2));
+		// 
+		int[] intArray2 = {0, 2, 3, 10};
+		int sum2 = 0;
+		for (int i = 0; i < intArray2.length; i++) {
+			sum2 += intArray2[i];
+		}
 		
-		// Something to do with duplicates in the array? Or zeros, or something? Honestly I have no idea why this breaks.
-		int[] intArray3 = {0, 10, 2, 2, 0, 3, 101, 3, 13, -1};
+		int sumArrayResult2 = inter.sumArray(intArray2);
+		
+		// Compare sumArray results with fool-proof version.
+		System.out.println(sumArrayResult2);
+		System.out.println(sum2);
+		
+		
+		System.out.println("");
+		System.out.println("sortArray method");
+		
+		int[] intArray3 = {0, 2, 3, 10, 99, 100, 500};
+		
+		// If the intArray is already in order, it reverses it.
 		System.out.println(Arrays.toString(intArray3));
 		inter.sortArray(intArray3);
 		System.out.println(Arrays.toString(intArray3));
+		
+		// Something to do with duplicates in the array? Or zeros, or something? Honestly I have no idea why this breaks.
+		int[] intArray4 = {0, 10, 2, 2, 0, 3, 101, 3, 13, -1};
+		System.out.println(Arrays.toString(intArray4));
+		inter.sortArray(intArray4);
+		System.out.println(Arrays.toString(intArray4));
 		
 	}
 }

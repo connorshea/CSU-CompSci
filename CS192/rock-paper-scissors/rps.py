@@ -257,7 +257,7 @@ def get_input(prompt_text, item_key, call_back=None):
             if event.type == QUIT: return
 
         # clear the screen
-        screen.fill((242, 209, 133))
+        screen.fill((168, 206, 255))
         # update txtbx
         done = txtbx.update(events)
 
@@ -278,7 +278,7 @@ def print_instructions(instructions):
     options = [Option("OK",(280,280)), Option("Quit", (15,280))]
     while True:
         pygame.event.pump()
-        screen.fill((242, 209, 133))
+        screen.fill((168, 255, 190))
 	
 	myfont = pygame.font.SysFont("Comic Sans MS", 22)
 	words = instructions.split(' ')
@@ -322,11 +322,11 @@ def print_instructions(instructions):
 
 
 def get_player_move():
-    options = [Option("Rock", (20, 45), "rock.png"), Option("Paper", (95, 45), "paper.png"), Option("Scissors", (20, 120), "scissors.png"), Option("Lizard", (95, 120), "lizard.png"), Option("Spock", (20, 200), "spock.png"), Option("Quit", (15,280))]
+    options = [Option("Rock", (5, 30), "rock.png"), Option("Paper", (105, 30), "paper.png"), Option("Scissors", (205, 30), "scissors.png"), Option("Lizard", (305, 30), "lizard.png"), Option("Spock", (405, 30), "spock.png"), Option("Quit", (15,280))]
     return_move = ""
     while True:
         pygame.event.pump()
-        screen.fill((242, 209, 133))
+        screen.fill((255, 168, 168))
 
 
 

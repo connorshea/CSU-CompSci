@@ -4,13 +4,13 @@ import rps
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def instructions(response):
     # Add to instruction_string so that it contains information on
     # how to play rock-paper-scissors
-    instruction_string = "Choose rock, paper, or scissors from the buttons. "
-    instruction_string += "The computer whil then choose a move. "
-    instruction_string += "Rock beats scissors, scissors beats paper, and paper beats rock."
+    instruction_string = "Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, "
+    instruction_string += "Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, "
+    instruction_string += "Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock, "
+    instruction_string += "and as it always has Rock crushes Scissors."
 
     # Use a string method to make response all one case
     response = response.lower()
@@ -182,13 +182,15 @@ def play_match():
 
 # Create a graph as we did in the previous lab
 def make_graph(name, player_wins, comp_wins, ties):
+    colors = ['red', 'blue', 'green', 'orange', 'purple']  
+
     people = (name, 'Computer', 'Ties')
     wins = (player_wins, comp_wins, ties)
 
     y_pos = np.arange(len(people))
 
 # Creation of the bar graph
-    plt.barh(y_pos, wins, align='center', alpha=0.4)
+    plt.barh(y_pos, wins, align='center', alpha=0.4, color=colors)
     plt.yticks(y_pos, people)
 
 # Label and title
