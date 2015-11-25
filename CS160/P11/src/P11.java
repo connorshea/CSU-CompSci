@@ -113,7 +113,7 @@ public class P11 {
 		System.out.println("");
 		System.out.println("sumArray method");
 		
-		// It doesn't like 0
+		// It doesn't like 0, 0s add 1.
 		int[] intArray = {0, 0, 2, 3, 10};
 		int sumArrayResult = inter.sumArray(intArray);
 		
@@ -126,8 +126,8 @@ public class P11 {
 		System.out.println(sumArrayResult);
 		System.out.println(sum);
 		
-		// 
-		int[] intArray2 = {0, 2, 3, 10};
+		// Breaks on 5-digit numbers and above
+		int[] intArray2 = {1, 2, 3, 55555};
 		int sum2 = 0;
 		for (int i = 0; i < intArray2.length; i++) {
 			sum2 += intArray2[i];
