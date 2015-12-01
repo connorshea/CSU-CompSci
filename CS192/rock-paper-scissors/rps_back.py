@@ -4,6 +4,8 @@ import rps
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Lexi and Connor
+
 def instructions(response):
     # Add to instruction_string so that it contains information on
     # how to play rock-paper-scissors
@@ -28,11 +30,11 @@ def check_name(name):
     if len(name) > 10:
         rps.quit_game("Name cannot be more than 10 characters long.")
     if len(name) < 2:
-	rps.quit_game("Name must be at least 2 characters long.")
+        rps.quit_game("Name must be at least 2 characters long.")
     if name.find(' ') != -1:
-	rps.quit_game("Name cannot have spaces.")
+        rps.quit_game("Name cannot have spaces.")
     if name.istitle() == False:
-	rps.quit_game("Name must be title case.")
+        rps.quit_game("Name must be title case.")
 
     # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
     # any condition call rps.quit_game with an appropriate error message.
@@ -51,7 +53,7 @@ def check_times_to_play(num):
 
     # Check that 'num' meets the requirements above.
 
-    if (2 > int(num)) or (int(num) > 21):
+    if (3 > int(num)) or (int(num) > 20):
         rps.quit_game(error)
 
     # If 'num' does not meet requirements call rps.quit_game with an error 
@@ -79,47 +81,47 @@ def play_game(name):
     elif ((player_move == 'Rock') and (string_choice == 'Paper')):
 	who_won = 'Computer'
     elif ((player_move == 'Rock') and (string_choice == 'Scissors')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Rock') and (string_choice == 'Lizard')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Rock') and (string_choice == 'Spock')):
 	who_won = 'Computer'
     elif ((player_move == 'Paper') and (string_choice == 'Scissors')):
 	who_won = 'Computer'
     elif ((player_move == 'Paper') and (string_choice == 'Rock')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Paper') and (string_choice == 'Lizard')):
 	who_won = 'Computer'
     elif ((player_move == 'Paper') and (string_choice == 'Spock')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Scissors') and (string_choice == 'Paper')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Scissors') and (string_choice == 'Rock')):
 	who_won = 'Computer'
     elif ((player_move == 'Scissors') and (string_choice == 'Lizard')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Scissors') and (string_choice == 'Spock')):
 	who_won = 'Computer'
     elif ((player_move == 'Lizard') and (string_choice == 'Rock')):
 	who_won = 'Computer'
     elif ((player_move == 'Lizard') and (string_choice == 'Paper')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Lizard') and (string_choice == 'Scissors')):
 	who_won = 'Computer'
     elif ((player_move == 'Lizard') and (string_choice == 'Spock')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Spock') and (string_choice == 'Rock')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Spock') and (string_choice == 'Paper')):
 	who_won = 'Computer'
     elif ((player_move == 'Spock') and (string_choice == 'Scissors')):
-	who_won = 'Player'
+	who_won = name
     elif ((player_move == 'Spock') and (string_choice == 'Lizard')):
 	who_won = 'Computer'
 
     # After determines who won, build a results string.
     # The next 3 lines partially builds this string. Complete for computer, add for tie, and add line for winner
-    results = "Player played " + player_move
+    results = name + " played " + player_move
     results += "\n"
     results += "Computer played " + string_choice
     results += "\n"
@@ -165,7 +167,7 @@ def play_match():
 	
 	if game_winner == "Computer":
 		computer_wins = computer_wins + 1
-	elif game_winner == "Player":
+	elif game_winner == player_name:
 		player_wins = player_wins + 1
 	elif game_winner == "Tie":
 		ties = ties + 1

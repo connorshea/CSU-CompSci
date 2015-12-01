@@ -343,7 +343,7 @@ def get_player_move():
 	    y = 110
 	    for line in text_line:
 		label = myfont.render(line,True,(0,0,0))
-		screen.blit(label, (250,y))
+		screen.blit(label, (150,y))
 		y += 50
 
         for option in options:
