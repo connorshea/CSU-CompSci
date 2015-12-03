@@ -33,8 +33,8 @@ def check_name(name):
         rps.quit_game("Name must be at least 2 characters long.")
     if name.find(' ') != -1:
         rps.quit_game("Name cannot have spaces.")
-    if name.istitle() == False:
-        rps.quit_game("Name must be title case.")
+    if name[0].isupper() == False:
+        rps.quit_game("Name must start with a capital letter.")
 
     # Use if statements, as above, to check if 'name' meets the requirements listed above. If it fails
     # any condition call rps.quit_game with an appropriate error message.

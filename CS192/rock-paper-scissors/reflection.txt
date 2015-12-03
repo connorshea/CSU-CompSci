@@ -1,0 +1,9 @@
+- Myles checked us off
+
+- Lexi Ryles and Connor Shea
+
+- We split writing the initial methods between the two of us, and worked together to test and debug the program. Lexi implemented the extra two options for the game, and I contributed layout changes and icons for said options.
+
+- I think we collaborated pretty well, and we both did about equal amounts of work both in and outside of class time, albeit she did slightly more.
+
+- For future projects I would probably choose to use a version control system like Git instead of sending files over email. Keeping up to date with a project is made difficult if you're trying to track it manually.
