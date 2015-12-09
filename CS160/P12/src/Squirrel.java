@@ -139,7 +139,7 @@ public class Squirrel implements AnimalInterface {
     }
     // Otherwise, screw it.
     else {
-    	move = eMove.DOWN;
+    	move = eMove.NO_MOVE;
     }
 
     // STEP 2
@@ -177,7 +177,7 @@ public class Squirrel implements AnimalInterface {
       }
       else if (move == eMove.UP_LEFT) {
         // If you can't move up left, move up
-        move = eMove.UP_LEFT;
+        move = eMove.UP;
       }
 
       isMoveValid = validateMove(move);
@@ -185,70 +185,67 @@ public class Squirrel implements AnimalInterface {
 
     System.out.println("SQUIRREL: " + move);
     
+
+    // STEP 3: MOVE SQUIRREL
     moveSquirrel(move);
   }
-  
-  //
-  // Private Methods, if you need them
-  //
 
-  public boolean validateMove(eMove move) {
-    boolean isMoveValid = true;
+  private boolean validateMove(eMove move) {
 
     // Make sure the move is valid
     if (move == eMove.DOWN) {
       // If you can't move down, return false
-      if (currentRow + 1 > field.length || field[currentRow + 1][currentCol] == 'D') {
-        isMoveValid = false;
+      if (currentRow + 1 > field.length || field[currentRow + 1][currentCol] == 'D' || field[currentRow + 1][currentCol] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.UP) {
       // If you can't move up, return false
-      if (currentRow - 1 < 0 || field[currentRow - 1][currentCol] == 'D') {
-        isMoveValid = false;
+      if (currentRow - 1 < 0 || field[currentRow - 1][currentCol] == 'D' || field[currentRow - 1][currentCol] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.RIGHT) {
       // If you can't move right, return false
-      if (currentCol + 1 > field[currentRow].length || field[currentRow][currentCol + 1] == 'D') {
-        isMoveValid = false;
+      if (currentCol + 1 > field[currentRow].length || field[currentRow][currentCol + 1] == 'D' || field[currentRow][currentCol + 1] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.LEFT) {
       // If you can't move left, return false
-      if (currentCol - 1 < 0 || field[currentRow][currentCol - 1] == 'D') {
-        isMoveValid = false;
+      if (currentCol - 1 < 0 || field[currentRow][currentCol - 1] == 'D' || field[currentRow][currentCol - 1] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.DOWN_RIGHT) {
       // If you can't move down right, return false
-      if (currentRow + 1 > field.length || currentCol + 1 > field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D') {
-        isMoveValid = false;
+      if (currentRow + 1 > field.length || currentCol + 1 > field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D' || field[currentRow + 1][currentCol + 1] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.DOWN_LEFT) {
       // If you can't move down left, return false
-      if (currentRow + 1 > field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D') {
-        isMoveValid = false;
+      if (currentRow + 1 > field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D' || field[currentRow + 1][currentCol - 1] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.UP_RIGHT) {
       // If you can't move up right, return false
-      if (currentRow - 1 < 0 || currentCol + 1 > field[currentRow].length || field[currentRow - 1][currentCol + 1] == 'D') {
-        isMoveValid = false;
+      if (currentRow - 1 < 0 || currentCol + 1 > field[currentRow].length || field[currentRow - 1][currentCol + 1] == 'D' || field[currentRow - 1][currentCol + 1] == 'S') {
+        return false;
       }
     }
     else if (move == eMove.UP_LEFT) {
       // If you can't move up left, return false
-      if (currentRow - 1 < 0 || currentCol - 1 < 0 || field[currentRow - 1][currentCol - 1] == 'D') {
-        isMoveValid = false;
+      if (currentRow - 1 < 0 || currentCol - 1 < 0 || field[currentRow - 1][currentCol - 1] == 'D' || field[currentRow - 1][currentCol - 1] == 'S') {
+        return false;
       }
     }
 
-    return isMoveValid;
+    return true;
   }
 
-  public void moveSquirrel(eMove move) {
+  private void moveSquirrel(eMove move) {
     if (move == eMove.DOWN) {
       currentRow++;
     }
@@ -276,6 +273,9 @@ public class Squirrel implements AnimalInterface {
     else if (move == eMove.UP_LEFT) {
       currentRow--;
       currentCol--;
+    }
+    else if (move == eMove.NO_MOVE) {
+      System.out.println("No move.");
     }
   }
 }
