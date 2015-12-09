@@ -1,0 +1,27 @@
+1: Four score and seven years ago our fathers brought forth on this continent,
+2: a new nation, conceived in Liberty, and dedicated to the proposition that all
+3: men are created equal.
+4: 
+5: Now we are engaged in a great civil war, testing whether that nation,
+6: or any nation so conceived and so dedicated, can long endure. We are met
+7: on a great battle-field of that war. We have come to dedicate a portion
+8: of that field, as a final resting place for those who here gave their lives
+9: that that nation might live. It is altogether fitting and proper that we
+10: should do this.
+11: 
+12: But, in a larger sense, we can not dedicate - we can not consecrate - we
+13: can not hallow - this ground. The brave men, living and dead, who struggled
+14: here, have consecrated it, far above our poor power to add or detract.
+15: The world will little note, nor long remember what we say here, but it can
+16: never forget what they did here. It is for us the living, rather, to be
+17: dedicated here to the unfinished work which they who fought here have
+18: thus far so nobly advanced. It is rather for us to be here dedicated to
+19: the great task remaining before us - that from these honored dead we 
+20: take increased devotion to that cause for which they gave the last full
+21: measure of devotion - that we here highly resolve that these dead shall
+22: not have died in vain - that this nation, under God, shall have a new
+23: birth of freedom - and that government of the people, by the people,
+24: for the people, shall not perish from the earth.
+25: 
+26: Abraham Lincoln
+27: November 19, 1863
