@@ -44,7 +44,7 @@ public class GameEngine{
 
             // Wait for awhile
             try {
-                Thread.sleep(5000);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }

@@ -195,7 +195,7 @@ public class Squirrel implements AnimalInterface {
     // Make sure the move is valid
     if (move == eMove.DOWN) {
       // If you can't move down, return false
-      if (currentRow + 1 > field.length || field[currentRow + 1][currentCol] == 'D' || field[currentRow + 1][currentCol] == 'S') {
+      if (currentRow + 1 >= field.length || field[currentRow + 1][currentCol] == 'D' || field[currentRow + 1][currentCol] == 'S') {
         return false;
       }
     }
@@ -207,7 +207,7 @@ public class Squirrel implements AnimalInterface {
     }
     else if (move == eMove.RIGHT) {
       // If you can't move right, return false
-      if (currentCol + 1 > field[currentRow].length || field[currentRow][currentCol + 1] == 'D' || field[currentRow][currentCol + 1] == 'S') {
+      if (currentCol + 1 >= field[currentRow].length || field[currentRow][currentCol + 1] == 'D' || field[currentRow][currentCol + 1] == 'S') {
         return false;
       }
     }
@@ -219,19 +219,19 @@ public class Squirrel implements AnimalInterface {
     }
     else if (move == eMove.DOWN_RIGHT) {
       // If you can't move down right, return false
-      if (currentRow + 1 > field.length || currentCol + 1 > field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D' || field[currentRow + 1][currentCol + 1] == 'S') {
+      if (currentRow + 1 >= field.length || currentCol + 1 >= field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D' || field[currentRow + 1][currentCol + 1] == 'S') {
         return false;
       }
     }
     else if (move == eMove.DOWN_LEFT) {
       // If you can't move down left, return false
-      if (currentRow + 1 > field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D' || field[currentRow + 1][currentCol - 1] == 'S') {
+      if (currentRow + 1 >= field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D' || field[currentRow + 1][currentCol - 1] == 'S') {
         return false;
       }
     }
     else if (move == eMove.UP_RIGHT) {
       // If you can't move up right, return false
-      if (currentRow - 1 < 0 || currentCol + 1 > field[currentRow].length || field[currentRow - 1][currentCol + 1] == 'D' || field[currentRow - 1][currentCol + 1] == 'S') {
+      if (currentRow - 1 < 0 || currentCol + 1 >= field[currentRow].length || field[currentRow - 1][currentCol + 1] == 'D' || field[currentRow - 1][currentCol + 1] == 'S') {
         return false;
       }
     }
