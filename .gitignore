@@ -40,3 +40,5 @@ out/
 
 # Ignore compiled Python files
 *.pyc
+
+*.jar

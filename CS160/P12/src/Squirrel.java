@@ -148,8 +148,8 @@ public class Squirrel implements AnimalInterface {
 
     while (isMoveValid == false) {
       if (move == eMove.DOWN) {
-        // If you can't move down, move down left
-        move = eMove.DOWN_LEFT;
+        // If you can't move down, give up on life
+        move = eMove.NO_MOVE;
       }
       else if (move == eMove.UP) {
         // If you can't move up, move up right
@@ -217,18 +217,6 @@ public class Squirrel implements AnimalInterface {
         return false;
       }
     }
-    else if (move == eMove.DOWN_RIGHT) {
-      // If you can't move down right, return false
-      if (currentRow + 1 >= field.length || currentCol + 1 >= field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D' || field[currentRow + 1][currentCol + 1] == 'S') {
-        return false;
-      }
-    }
-    else if (move == eMove.DOWN_LEFT) {
-      // If you can't move down left, return false
-      if (currentRow + 1 >= field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D' || field[currentRow + 1][currentCol - 1] == 'S') {
-        return false;
-      }
-    }
     else if (move == eMove.UP_RIGHT) {
       // If you can't move up right, return false
       if (currentRow - 1 < 0 || currentCol + 1 >= field[currentRow].length || field[currentRow - 1][currentCol + 1] == 'D' || field[currentRow - 1][currentCol + 1] == 'S') {
@@ -238,6 +226,18 @@ public class Squirrel implements AnimalInterface {
     else if (move == eMove.UP_LEFT) {
       // If you can't move up left, return false
       if (currentRow - 1 < 0 || currentCol - 1 < 0 || field[currentRow - 1][currentCol - 1] == 'D' || field[currentRow - 1][currentCol - 1] == 'S') {
+        return false;
+      }
+    }
+    else if (move == eMove.DOWN_RIGHT) {
+      // If you can't move down right, return false
+      if (currentRow + 1 >= field.length || currentCol + 1 >= field[currentRow].length || field[currentRow + 1][currentCol + 1] == 'D' || field[currentRow + 1][currentCol + 1] == 'S') {
+        return false;
+      }
+    }
+    else if (move == eMove.DOWN_LEFT) {
+      // If you can't move down left, return false
+      if (currentRow + 1 >= field.length || currentCol - 1 < 0 || field[currentRow + 1][currentCol - 1] == 'D' || field[currentRow + 1][currentCol - 1] == 'S') {
         return false;
       }
     }

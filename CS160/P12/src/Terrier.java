@@ -150,8 +150,8 @@ public class Terrier implements AnimalInterface {
 
     while (isMoveValid == false) {
       if (move == eMove.DOWN) {
-        // If you can't move down, move down left
-        move = eMove.DOWN_LEFT;
+        // If you can't move down, give up on life
+        move = eMove.NO_MOVE;
       }
       else if (move == eMove.UP) {
         // If you can't move up, move up right
