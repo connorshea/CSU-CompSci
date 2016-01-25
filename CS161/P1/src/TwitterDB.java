@@ -75,8 +75,6 @@ public class TwitterDB implements TwitterDBInterface {
 	@Override
 	public String mostCommonWord() {
 
-		String tweet
-
 		int numberOfWords = 0;
 
 		for (int i = 0; i < tweets.length; i++) {
@@ -94,7 +92,7 @@ public class TwitterDB implements TwitterDBInterface {
 
 	  System.out.println(numberOfWords);
 
-	  tweetWords = new String[numberOfWords];
+	  String[] tweetWords = new String[numberOfWords];
 
 	  int numberOfWords2 = 0;
 	  
@@ -124,8 +122,29 @@ public class TwitterDB implements TwitterDBInterface {
 	 */
 	@Override
 	public int[] tweetLengths() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] tweetLengths = {0, 0, 0, 0, 0, 0, 0};
+
+		for (int i = 0; i < tweets.length; i++) {
+			int tweetLength = tweets[i].length();
+
+      if (tweetLength >= 1 && tweetLength <= 20) {
+      	tweetLengths[0] += 1;
+      } else if (tweetLength >= 21 && tweetLength <= 40) {
+      	tweetLengths[1] += 1;
+      } else if (tweetLength >= 41 && tweetLength <= 60) {
+      	tweetLengths[2] += 1;
+      } else if (tweetLength >= 61 && tweetLength <= 80) {
+      	tweetLengths[3] += 1;
+      } else if (tweetLength >= 81 && tweetLength <= 100) {
+      	tweetLengths[4] += 1;
+      } else if (tweetLength >= 101 && tweetLength <= 120) {
+      	tweetLengths[5] += 1;
+      } else if (tweetLength >= 121 && tweetLength <= 140) {
+      	tweetLengths[6] += 1;
+      }
+		}
+
+		return tweetLengths;
 	}
 
 	/*
@@ -136,8 +155,25 @@ public class TwitterDB implements TwitterDBInterface {
 	 */
 	@Override
 	public int frequency(String word) {
-		// TODO Auto-generated method stub
-		return 0;
+		word = word.toLowerCase();
+
+		int frequency = 0;
+
+		for (int i = 0; i < tweets.length; i++) {
+		  Scanner s = new Scanner(tweets[i]);
+		  s.useDelimiter("[ *\\-,!?.]+");
+			
+		  while (s.hasNext()) {
+		  	String thisWord = s.next();
+			  thisWord = thisWord.toLowerCase();
+
+			  if (thisWord.equals(word)) {
+			  	frequency++;
+			  }
+			}
+		}
+
+		return frequency;
 	}
 	
 	public static void main(String[] args) {
@@ -145,8 +181,7 @@ public class TwitterDB implements TwitterDBInterface {
     tdb.loadTweets(args[0]);
 
     System.out.println(tdb.mostCommonWord());
-    System.out.println(tdb.tweetLengths());
+    System.out.println(Arrays.toString(tdb.tweetLengths()));
     System.out.println(tdb.frequency("Radio"));
-    System.out.println("Done.");
 	}
 }
