@@ -11,10 +11,11 @@ import java.io.File;
 import java.util.Scanner;
 
 public class TwitterDB implements TwitterDBInterface {
-	private String[] tweets; // stores the tweets loaded from a file containing tweets.
+	// Stores the tweets loaded from a file containing tweets.
+	private String[] tweets;
 
 	/*
-	 * populates the class with the tweets contained in the file given as input.
+	 * Populates the class with the tweets contained in the file given as input.
 	 * Argument: the file name where the tweets are stored.
 	 */
 	@Override
@@ -193,7 +194,7 @@ public class TwitterDB implements TwitterDBInterface {
 	}
 
 	/*
-	 * computes the frequency of the given word in the database
+	 * Computes the frequency of the given word in the database
 	 * Argument:  the word to be searched
 	 * Returns:  an integer which counts the number of occurrences 
 	 * of the given word in the database
