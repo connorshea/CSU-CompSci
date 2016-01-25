@@ -3,7 +3,7 @@
 // Date:   1/18/2016
 // Class:  CS161
 // Email:  coshea@cs.colostate.edu
-// 
+// http://www.cs.colostate.edu/~cs161/spring16/more_assignments/P1/P1.html
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -77,6 +77,7 @@ public class TwitterDB implements TwitterDBInterface {
 
 		int numberOfWords = 0;
 
+		// Determines the number of words over all the tweets in the tweets array.
 		for (int i = 0; i < tweets.length; i++) {
 		  Scanner s = new Scanner(tweets[i]);
 		  s.useDelimiter("[ *\\-,!?.]+");
@@ -90,30 +91,74 @@ public class TwitterDB implements TwitterDBInterface {
 		  s.close();
 	  }
 
-	  System.out.println(numberOfWords);
+	  // Creates an array of Strings and an array of ints.
+	  // They're the same size so the Strings map to the number of times they're
+	  // found in the data we're provided.
+	  String[] words = new String[numberOfWords];
+	  int[] instancesOfWords = new int[numberOfWords];
 
-	  String[] tweetWords = new String[numberOfWords];
+	  // Set every element in the array to 0.
+	  for (int i = 0; i < instancesOfWords.length; i++) {
+	  	instancesOfWords[i] = 0;
+	  }
 
-	  int numberOfWords2 = 0;
-	  
+	  // Iterator used to iterate through when a new unique word is added
+	  // to the words array.
+	  int iterator = 0;
+
+	  // Goes through every tweet in the tweets array.
 	  for (int i = 0; i < tweets.length; i++) {
-		  
 		  Scanner s = new Scanner(tweets[i]);
 		  s.useDelimiter("[ *\\-,!?.]+");
-		  
-		  while (s.hasNext()) {
-		  	String word = s.next();
-			  word = word.toLowerCase();
-			  tweetWords[numberOfWords2] = word;
-		  	numberOfWords2++;
-		  }
-		  
-		  s.close();
-	  }
-	  
-	  System.out.println(Arrays.toString(tweetWords));
 
-		return null;
+		  // While loop that goes through every word in the current tweet.
+	    while (s.hasNext()) {
+	  		String word = s.next();
+	  		boolean unique = true;
+
+	  		// Compares the String from the scanner with every String in the words
+	  		// array. If they're the same, the "unique" variable is set to false
+	  		// and the for loop is exited.
+	  		for (int j = 0; j < words.length; j++) {
+		  		if ( word.equals(words[j]) ) {
+		  			instancesOfWords[j] += 1;
+		  			unique = false;
+		  			break;
+		  		}
+		  	}
+
+		  	// If the for loop above goes through without finding a previous
+		  	// match, the word is unique and should be given its own space in
+		  	// the array of words.
+		  	if (unique) {
+			  	words[iterator] = word;
+			  	instancesOfWords[iterator] += 1;
+			  	iterator++;
+			  }
+	    }
+
+	    s.close();
+		}
+
+		// Integer for storing the current biggest number in the instancesOfWords array.
+		int currentBiggest = 0;
+		// The index of the most frequent word.
+		int mostFrequentWordIndex = -1;
+
+		// Iterates through every element in the instancesOfWords array.
+		for (int i = 0; i < instancesOfWords.length; i++) {
+			// If the integer we're currently checking is a larger integer than the
+			// one stored in the currentBiggest variable, replace the currentBiggest
+			// variable with that integer and record the index of that integer in
+			// the mostFrequentWordIndex variable for later use.
+			if (currentBiggest < instancesOfWords[i]) {
+				currentBiggest = instancesOfWords[i];
+				mostFrequentWordIndex = i;
+			}
+		}
+
+		// Returns the word in the words array that is located at the mostFrequentIndex.
+		return words[mostFrequentWordIndex];
 	}
 
 	/*
