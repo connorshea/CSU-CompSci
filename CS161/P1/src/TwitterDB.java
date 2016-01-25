@@ -204,15 +204,19 @@ public class TwitterDB implements TwitterDBInterface {
 
 		int frequency = 0;
 
+		// Iterates through the tweets array.
 		for (int i = 0; i < tweets.length; i++) {
 		  Scanner s = new Scanner(tweets[i]);
 		  s.useDelimiter("[ *\\-,!?.]+");
 			
+			// Iterates through every word in a given tweet.
 		  while (s.hasNext()) {
-		  	String thisWord = s.next();
-			  thisWord = thisWord.toLowerCase();
+		  	String currentWord = s.next();
+			  currentWord = currentWord.toLowerCase();
 
-			  if (thisWord.equals(word)) {
+			  // If the current word is equal to the word variable,
+			  // up the frequency.
+			  if (currentWord.equals(word)) {
 			  	frequency++;
 			  }
 			}
