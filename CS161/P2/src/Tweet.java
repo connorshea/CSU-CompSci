@@ -46,7 +46,7 @@ public class Tweet {
     return this.date.before(other.date);
   }
 
-  public String toString() {
-	  return null;
+  public String toString() {;
+	  return userID + "\t" + date.toString() + "\t" + tweet;
   }
 }

@@ -6,9 +6,9 @@
 // http://www.cs.colostate.edu/~cs161/spring16/more_assignments/P2/P2.html
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.io.File;
 import java.util.Scanner;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
@@ -116,7 +116,14 @@ public class TwitterDB {
   public Tweet[] tweetsBefore(String dateTime) {
     ArrayList<Tweet> tweetsBefore = new ArrayList<Tweet>();
 
-    Date dateTimeDate = Date.parse(dateTime);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    Date dateTimeDate = new Date();
+    
+    try {
+      dateTimeDate = sdf.parse(dateTime);
+    } catch(ParseException e) {
+      System.exit(0);
+    }
     
     for (int i = 0; i < tweets.length; i++) {
       if (tweets[i].getDate().before(dateTimeDate)) {
@@ -173,6 +180,8 @@ public class TwitterDB {
 
     tweets = tdb.tweetsBefore(tdb.tweets[0]);
     System.out.println("Number of tweets before test tweet: " + tweets.length);
+
+    System.out.println(tdb.tweets[0]);
   }
 
 }
