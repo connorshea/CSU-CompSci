@@ -1,0 +1,21 @@
+giraffe 32
+pronghorn 60
+reindeer 32
+mongolian wild ass 40
+wildebeest 56
+jackal 35
+lion 50
+gray fox 42
+horse 50
+elk 45
+mule deer 36
+human 27
+whippet 35
+cape hunting dog 45
+coyote 43
+hyena 40
+cheetah 68
+zebra 50
+greyhound 45
+rabbit 49
+gazelle 57

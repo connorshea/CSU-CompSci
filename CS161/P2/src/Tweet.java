@@ -18,7 +18,7 @@ public class Tweet {
   private String tweet;
 
   public Tweet(String userID, String dateTime, String tweet) {
-	this.userID = userID;
+	 this.userID = userID;
     this.tweet = tweet;
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");

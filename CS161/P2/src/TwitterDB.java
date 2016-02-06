@@ -183,5 +183,4 @@ public class TwitterDB {
 
     System.out.println(tdb.tweets[0]);
   }
-
 }
