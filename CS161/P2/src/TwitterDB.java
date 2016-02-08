@@ -11,7 +11,6 @@ import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.ArrayList;
 
 public class TwitterDB {
   private Tweet[] tweets = new Tweet[0]; // Stores all the tweets, initially there are none
@@ -100,22 +99,29 @@ public class TwitterDB {
   }
 
   public Tweet[] tweetsBy(String userID) {
-    ArrayList<Tweet> tweetsByUser = new ArrayList<Tweet>();
+    int j = 0;
 
     for (int i = 0; i < tweets.length; i++) {
       if (tweets[i].getUserID().equals(userID)) {
-        tweetsByUser.add(tweets[i]);
+        j++;
+      }
+    }
+
+    Tweet[] tweetsByUser = new Tweet[j];
+
+    int k = 0;
+
+    for (int i = 0; i < tweets.length; i++) {
+      if (tweets[i].getUserID().equals(userID)) {
+        tweetsByUser[k] = tweets[i];
+        k++;
       }
     }
     
-    Tweet[] tweetsByUserArray = tweetsByUser.toArray(new Tweet[tweetsByUser.size()]);
-    
-    return tweetsByUserArray;
+    return tweetsByUser;
   }
 
   public Tweet[] tweetsBefore(String dateTime) {
-    ArrayList<Tweet> tweetsBefore = new ArrayList<Tweet>();
-
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     Date dateTimeDate = new Date();
     
@@ -124,30 +130,49 @@ public class TwitterDB {
     } catch(ParseException e) {
       System.exit(0);
     }
-    
+
+    int j = 0;
     for (int i = 0; i < tweets.length; i++) {
       if (tweets[i].getDate().before(dateTimeDate)) {
-        tweetsBefore.add(tweets[i]);
+        j++;
       }
     }
-    
-    Tweet[] tweetsBeforeArray = tweetsBefore.toArray(new Tweet[tweetsBefore.size()]);
 
-    return tweetsBeforeArray;
+    Tweet[] tweetsBefore = new Tweet[j];
+
+    int k = 0;
+
+    for (int i = 0; i < tweets.length; i++) {
+      if (tweets[i].getDate().before(dateTimeDate)) {
+        tweetsBefore[k] = tweets[i];
+        k++;
+      }
+    }
+
+    return tweetsBefore;
   }
 
   public Tweet[] tweetsBefore(Tweet tweet) {
-	  ArrayList<Tweet> tweetsBefore = new ArrayList<Tweet>();
+    int j = 0;
 
     for (int i = 0; i < tweets.length; i++) {
       if (tweets[i].getDate().before(tweet.getDate())) {
-        tweetsBefore.add(tweets[i]);
+        j++;
       }
     }
-    
-    Tweet[] tweetsBeforeArray = tweetsBefore.toArray(new Tweet[tweetsBefore.size()]);
 
-    return tweetsBeforeArray;
+    Tweet[] tweetsBefore = new Tweet[j];
+
+    int k = 0;
+
+    for (int i = 0; i < tweets.length; i++) {
+      if (tweets[i].getDate().before(tweet.getDate())) {
+        tweetsBefore[k] = tweets[i];
+        k++;
+      }
+    }
+
+    return tweetsBefore;
   }
 
   public Tweet getTweet(int i) {
