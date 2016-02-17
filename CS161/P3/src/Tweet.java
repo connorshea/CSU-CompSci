@@ -51,7 +51,7 @@ public class Tweet {
   }
 
   public boolean equals(Object other) {
-    if (other instanceof Tweet && other.getTweet().equals(this.tweet)) {
+    if (other instanceof Tweet && ((Tweet) other).getTweet().equals(this.tweet)) {
       return true;
     }
 
