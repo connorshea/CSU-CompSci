@@ -45,14 +45,15 @@ public abstract class ChessPiece {
 	// This method returns the position of the piece in the format single letter
 	// (a..h) followed by a single digit (1..8).
 	public String getPosition() {
-		return null;
+		String returnString = ((char) (row + 1)) + "" + (column + 1);
+		return returnString;
 	}
 
 	// This method sets the position of the piece to the appropriate row and
 	// column based on the argument, which in the format single letter (a..h)
 	// followed by a single digit (1..8).
 	public void setPosition(String position) {
-
+		
 	}
 
 	abstract public String toString();
