@@ -45,7 +45,31 @@ public abstract class ChessPiece {
 	// This method returns the position of the piece in the format single letter
 	// (a..h) followed by a single digit (1..8).
 	public String getPosition() {
-		String returnString = ((char) (row + 1)) + "" + (column + 1);
+		String returnString = "";
+		
+		switch (column) {
+      case 0: returnString += "a";
+        break;
+      case 1: returnString += "b";
+        break;
+      case 2: returnString += "c";
+        break;
+      case 3: returnString += "d";
+        break;
+      case 4: returnString += "e";
+        break;
+      case 5: returnString += "f";
+        break;
+      case 6: returnString += "g";
+        break;
+      case 7: returnString += "h";
+        break;
+      default:
+        break;
+    }
+
+    returnString += (row + 1);
+
 		return returnString;
 	}
 
@@ -53,8 +77,12 @@ public abstract class ChessPiece {
 	// column based on the argument, which in the format single letter (a..h)
 	// followed by a single digit (1..8).
 	public void setPosition(String position) {
-		
+		int[] coords = board.parsePosition(position);
+
+		setRow(coords[0]);
+		setColumn(coords[1]);
 	}
+
 
 	abstract public String toString();
 	abstract public ArrayList<String> legalMoves();

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * @author Connor Shea
@@ -108,7 +109,13 @@ public class ChessBoard {
 
   // This method returns the chess piece at a given position.
   public ChessPiece getPiece(String position) {
-    return null;
+    int[] coords = parsePosition(position);
+
+    if (board[coords[0]][coords[1]] == null) {
+      return null;
+    } else {
+      return board[coords[0]][coords[1]];
+    }
   }
 
   // This method tries to place the given piece at a given position, and returns
@@ -122,11 +129,13 @@ public class ChessBoard {
   public boolean placePiece(ChessPiece piece, String position) {
     int[] coords = parsePosition(position);
     
-    if ( board[coords[0]][coords[1]] == null) {
+    if (board[coords[0]][coords[1]] == null) {
       board[coords[0]][coords[1]] = piece;
+      piece.setPosition(position);
+      return true;
     }
 
-    return true;
+    return false;
   }
 
   // This method checks if moving the piece from the fromPosition to toPosition
@@ -135,6 +144,14 @@ public class ChessBoard {
   // board as needed. The method returns true if the move was executed, and
   // false otherwise.
   public boolean move(String fromPosition, String toPosition) {
+    ChessPiece piece = getPiece(fromPosition);
+    ArrayList<String> legalMoves = piece.legalMoves();
+
+    if (legalMoves.contains(toPosition)) {
+      piece.setPosition(toPosition);
+      return true;
+    }
+
     return false;
   }
 
@@ -158,7 +175,7 @@ public class ChessBoard {
 
     String topLine = upperLeft;
     
-    for (int i = 0; i<7; i++) {
+    for (int i = 0; i < 7; i++) {
       topLine += horizontal3 + upperT;
     }
     
@@ -203,7 +220,7 @@ public class ChessBoard {
     return chess;
   }
 
-  public static String parseCoordinates(int row, int column) {
+  public String parseCoords(int row, int column) {
     String returnString = "";
 
     switch (column) {
@@ -251,7 +268,7 @@ public class ChessBoard {
     return returnString;
   }
 
-  public static int[] parsePosition(String position) {
+  public int[] parsePosition(String position) {
     int[] coordinates = new int[2];
 
     switch (position.charAt(0)) {
@@ -300,11 +317,16 @@ public class ChessBoard {
   }
 
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(parsePosition("c3")));
-    System.out.println( parseCoordinates( {2, 2} ) );
-
     ChessBoard board = new ChessBoard();
     board.initialize();
+
+    System.out.println(Arrays.toString(board.parsePosition("c3")));
+    System.out.println(board.parseCoords(2,2));
+    System.out.println(board.getPiece("a1"));
+
+    ChessPiece piece = board.getPiece("c8");
+    System.out.println(piece.getPosition());
+
     System.out.println(board);
     // board.move("c2", "c4");
   }

@@ -12,8 +12,14 @@ public class Bishop extends ChessPiece {
     return unicodeCharacter;
   }
 
+  // A bishop can move any number of squares diagonally in any direction as
+  // long as it does not have to leap over other pieces. At the end of the
+  // move, it can occupy a previously empty square or capture (replace) an
+  // opponent's piece but it cannot replace another piece of the same player.
   @Override
   public ArrayList<String> legalMoves() {
+    ArrayList<String> legalMoves = new ArrayList<String>();
     
+    return legalMoves;
   }
 }

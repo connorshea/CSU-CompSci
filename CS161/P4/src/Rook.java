@@ -12,8 +12,15 @@ public class Rook extends ChessPiece {
     return unicodeCharacter;
   }
 
+  // A rook can move any number of squares horizontally or vertically, forward
+  // or backward, as long as it does not have to leap over other pieces. At
+  // the end of the move, it can occupy a previously empty square or capture
+  // (replace) an opponent's piece but it cannot replace another piece of the
+  // same player.
   @Override
   public ArrayList<String> legalMoves() {
-	  return null;
+	  ArrayList<String> legalMoves = new ArrayList<String>();
+    
+    return legalMoves;
   }
 }
