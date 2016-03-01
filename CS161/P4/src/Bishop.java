@@ -32,34 +32,42 @@ public class Bishop extends ChessPiece {
     }
 
     for (int i = 1; i < 8 - greaterValue; i++) {
-      if (board.getPiece(board.parseCoords(currentRow + i, currentColumn + i)) == null) {
-        setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn + i));
-      } else {
-        break;
+      if (currentRow + i < 8 && currentColumn + i < 8) {
+        if (board.getPiece(board.parseCoords(currentRow + i, currentColumn + i)) == null) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn + i));
+        } else {
+          break;
+        }
       }
     }
 
     for (int i = 1; i < 8 - greaterValue; i++) {
-      if (board.getPiece(board.parseCoords(currentRow + i, currentColumn - i)) == null) {
-        setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn - i));
-      } else {
-        break;
+      if (currentRow + i < 8 && currentColumn - i >= 0) {
+        if (board.getPiece(board.parseCoords(currentRow + i, currentColumn - i)) == null) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn - i));
+        } else {
+          break;
+        }
       }
     }
 
     for (int i = 1; i < 8 - greaterValue; i++) {
-      if (board.getPiece(board.parseCoords(currentRow - i, currentColumn - i)) == null) {
-        setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn - i));
-      } else {
-        break;
+      if (currentRow - i >= 0 && currentColumn - i >= 0) {
+        if (board.getPiece(board.parseCoords(currentRow - i, currentColumn - i)) == null) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn - i));
+        } else {
+          break;
+        }
       }
     }
 
     for (int i = 1; i < 8 - greaterValue; i++) {
-      if (board.getPiece(board.parseCoords(currentRow - i, currentColumn + i)) == null) {
-        setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn + i));
-      } else {
-        break;
+      if (currentRow - i >= 0 && currentColumn + i < 8) {
+        if (board.getPiece(board.parseCoords(currentRow - i, currentColumn + i)) == null) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn + i));
+        } else {
+          break;
+        }
       }
     }
 

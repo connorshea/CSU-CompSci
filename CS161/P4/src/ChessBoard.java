@@ -157,7 +157,6 @@ public class ChessBoard {
       return true;
     }
 
-    System.out.println("💩");
     return false;
   }
 
@@ -246,8 +245,6 @@ public class ChessBoard {
         break;
       case 7: returnString += "h";
         break;
-      default:
-        break;
     }
 
     switch (row) {
@@ -331,10 +328,21 @@ public class ChessBoard {
     System.out.println(board.getPiece("a1"));
 
     System.out.println(board);
+
+
+    board.move("d2", "d4");
+    System.out.println(board);
+    board.move("c1", "f4");
+    System.out.println(board);
+    board.move("e7", "e5");
+    System.out.println(board);
+    board.move("e2", "e3");
+    System.out.println(board);
     board.move("a2", "a4");
+    System.out.println(board);
     board.move("a1", "a3");
-    board.move("h7", "h5");
-    board.move("g7", "g5");
+    System.out.println(board);
+    board.move("a3", "b3");
     
     System.out.println(board);
     board.move("a4", "a5");
@@ -342,10 +350,9 @@ public class ChessBoard {
     System.out.println(board);
     board.move("f8", "g7");
     
-    board.move("g2", "g4");
-    board.move("a3", "c3");
     System.out.println(board);
-    board.move("f1", "g2");
+    board.move("g2", "g4");
+    board.move("f1", "h3");
     System.out.println(board);
   }
 }
