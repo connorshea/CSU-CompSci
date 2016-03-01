@@ -27,23 +27,23 @@ public class Pawn extends ChessPiece {
     int currentColumn = getColumn();
 
     // Can move up to two spaces up.
-    if (this.getColor() == ChessPiece.Color.WHITE && currentRow == 1) {
+    if (this.getColor() == ChessPiece.Color.WHITE) {
       if (board.getPiece(board.parseCoords(currentRow + 1, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow + 1, currentColumn));
       }
 
-      if (board.getPiece(board.parseCoords(currentRow + 2, currentColumn)) == null) {
+      if (currentRow == 1 && board.getPiece(board.parseCoords(currentRow + 2, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow + 2, currentColumn));
       }
     }
 
     // Can move up to two spaces down.
-    if (this.getColor() == ChessPiece.Color.BLACK && currentRow == 6) {
+    if (this.getColor() == ChessPiece.Color.BLACK) {
       if (board.getPiece(board.parseCoords(currentRow - 1, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow - 1, currentColumn));
       }
 
-      if (board.getPiece(board.parseCoords(currentRow - 2, currentColumn)) == null) {
+      if (currentRow == 6 && board.getPiece(board.parseCoords(currentRow - 2, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow - 2, currentColumn));
 
       }
@@ -64,7 +64,7 @@ public class Pawn extends ChessPiece {
     }
 
     if (this.getColor() == ChessPiece.Color.BLACK) {
-      if (currentRow - 1 >= 0 && currentColumn + 1 >= 0 && board.getPiece(board.parseCoords(currentRow - 1, currentColumn + 1)) != null) {
+      if (currentRow - 1 >= 0 && currentColumn + 1 < 8 && board.getPiece(board.parseCoords(currentRow - 1, currentColumn + 1)) != null) {
         if (board.getPiece(board.parseCoords(currentRow - 1, currentColumn + 1)).getColor() == ChessPiece.Color.WHITE) {
           setOfLegalMoves.add(board.parseCoords(currentRow - 1, currentColumn + 1));
         }
