@@ -18,8 +18,51 @@ public class Bishop extends ChessPiece {
   // opponent's piece but it cannot replace another piece of the same player.
   @Override
   public ArrayList<String> legalMoves() {
-    ArrayList<String> legalMoves = new ArrayList<String>();
+    ArrayList<String> setOfLegalMoves = new ArrayList<String>();
     
-    return legalMoves;
+    int currentRow = getRow();
+    int currentColumn = getColumn();
+
+    int greaterValue;
+    
+    if (currentRow > currentColumn) {
+      greaterValue = currentRow;
+    } else {
+      greaterValue = currentColumn;
+    }
+
+    for (int i = 1; i < 8 - greaterValue; i++) {
+      if (board.getPiece(board.parseCoords(currentRow + i, currentColumn + i)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn + i));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = 1; i < 8 - greaterValue; i++) {
+      if (board.getPiece(board.parseCoords(currentRow + i, currentColumn - i)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn - i));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = 1; i < 8 - greaterValue; i++) {
+      if (board.getPiece(board.parseCoords(currentRow - i, currentColumn - i)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn - i));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = 1; i < 8 - greaterValue; i++) {
+      if (board.getPiece(board.parseCoords(currentRow - i, currentColumn + i)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn + i));
+      } else {
+        break;
+      }
+    }
+
+    return setOfLegalMoves;
   }
 }

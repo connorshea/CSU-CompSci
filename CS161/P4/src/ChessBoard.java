@@ -334,12 +334,18 @@ public class ChessBoard {
     board.move("a2", "a4");
     board.move("a1", "a3");
     board.move("h7", "h5");
+    board.move("g7", "g5");
     
     System.out.println(board);
     board.move("a4", "a5");
     board.move("c2", "c4");
     System.out.println(board);
+    board.move("f8", "g7");
+    
+    board.move("g2", "g4");
     board.move("a3", "c3");
+    System.out.println(board);
+    board.move("f1", "g2");
     System.out.println(board);
   }
 }
