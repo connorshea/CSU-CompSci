@@ -19,8 +19,43 @@ public class Rook extends ChessPiece {
   // same player.
   @Override
   public ArrayList<String> legalMoves() {
-	  ArrayList<String> legalMoves = new ArrayList<String>();
+	  ArrayList<String> setOfLegalMoves = new ArrayList<String>();
+
+    int currentRow = getRow();
+    int currentColumn = getColumn();
+
+    for (int i = currentRow; i < 8; i++) {
+      if (board.getPiece(board.parseCoords(i, currentColumn)) == null || board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = currentRow; i >= 0; i--) {
+      if (board.getPiece(board.parseCoords(i, currentColumn)) == null || board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = currentColumn; i < 8; i++) {
+      if (board.getPiece(board.parseCoords(currentRow, i)) == null || board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(currentRow, i));
+      } else {
+        break;
+      }
+    }
+
+    for (int i = currentColumn; i >= 0; i--) {
+      if (board.getPiece(board.parseCoords(currentRow, i)) == null || board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(currentRow, i));
+      } else {
+        break;
+      }
+    }
     
-    return legalMoves;
+    return setOfLegalMoves;
   }
 }

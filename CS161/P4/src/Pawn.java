@@ -21,9 +21,62 @@ public class Pawn extends ChessPiece {
   // to another piece if the pawn reaches the end of the column.
   @Override
   public ArrayList<String> legalMoves() {
-    ArrayList<String> legalMoves = new ArrayList<String>();
+    ArrayList<String> setOfLegalMoves = new ArrayList<String>();
     
+    int currentRow = getRow();
+    int currentColumn = getColumn();
 
-    return legalMoves;
+    // Can move up to two spaces up.
+    if (this.getColor() == ChessPiece.Color.WHITE && currentRow == 1) {
+      if (board.getPiece(board.parseCoords(currentRow + 1, currentColumn)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow + 1, currentColumn));
+      }
+
+      if (board.getPiece(board.parseCoords(currentRow + 2, currentColumn)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow + 2, currentColumn));
+      }
+    }
+
+    // Can move up to two spaces down.
+    if (this.getColor() == ChessPiece.Color.BLACK && currentRow == 6) {
+      if (board.getPiece(board.parseCoords(currentRow - 1, currentColumn)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow - 1, currentColumn));
+      }
+
+      if (board.getPiece(board.parseCoords(currentRow - 2, currentColumn)) == null) {
+        setOfLegalMoves.add(board.parseCoords(currentRow - 2, currentColumn));
+
+      }
+    }
+
+    if (this.getColor() == ChessPiece.Color.WHITE) {
+      if (currentRow + 1 < 8 && currentColumn + 1 < 8 && board.getPiece(board.parseCoords(currentRow + 1, currentColumn + 1)) != null) {
+        if (board.getPiece(board.parseCoords(currentRow + 1, currentColumn + 1)).getColor() == ChessPiece.Color.BLACK) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + 1, currentColumn + 1));
+        }
+      }
+
+      if (currentRow + 1 < 8 && currentColumn - 1 >= 0 && board.getPiece(board.parseCoords(currentRow + 1, currentColumn - 1)) != null) {
+        if (board.getPiece(board.parseCoords(currentRow + 1, currentColumn - 1)).getColor() == ChessPiece.Color.BLACK) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + 1, currentColumn - 1));
+        }
+      }
+    }
+
+    if (this.getColor() == ChessPiece.Color.BLACK) {
+      if (currentRow - 1 >= 0 && currentColumn + 1 >= 0 && board.getPiece(board.parseCoords(currentRow - 1, currentColumn + 1)) != null) {
+        if (board.getPiece(board.parseCoords(currentRow - 1, currentColumn + 1)).getColor() == ChessPiece.Color.WHITE) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - 1, currentColumn + 1));
+        }
+      }
+
+      if (currentRow - 1 >= 0 && currentColumn - 1 >= 0 && board.getPiece(board.parseCoords(currentRow - 1, currentColumn - 1)) != null) {
+        if (board.getPiece(board.parseCoords(currentRow - 1, currentColumn - 1)).getColor() == ChessPiece.Color.WHITE) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - 1, currentColumn - 1));
+        }
+      }
+    }
+
+    return setOfLegalMoves;
   }
 }

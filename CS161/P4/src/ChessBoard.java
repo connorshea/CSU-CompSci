@@ -148,10 +148,16 @@ public class ChessBoard {
     ArrayList<String> legalMoves = piece.legalMoves();
 
     if (legalMoves.contains(toPosition)) {
-      piece.setPosition(toPosition);
+      placePiece(piece, toPosition);
+      int[] coords = parsePosition(fromPosition);
+      
+      // Nullify old position.
+      board[coords[0]][coords[1]] = null;
+
       return true;
     }
 
+    System.out.println("💩");
     return false;
   }
 
@@ -324,10 +330,12 @@ public class ChessBoard {
     System.out.println(board.parseCoords(2,2));
     System.out.println(board.getPiece("a1"));
 
-    ChessPiece piece = board.getPiece("c8");
-    System.out.println(piece.getPosition());
-
     System.out.println(board);
-    // board.move("c2", "c4");
+    board.move("a2", "a4");
+    board.move("a1", "a3");
+    
+    System.out.println(board);
+    board.move("c2", "c4");
+    System.out.println(board);
   }
 }
