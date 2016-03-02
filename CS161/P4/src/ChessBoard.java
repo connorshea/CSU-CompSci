@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.ArrayList;
 
 /**
@@ -135,6 +134,7 @@ public class ChessBoard {
       return true;
     }
 
+    System.out.println("💩");
     return false;
   }
 
@@ -323,12 +323,7 @@ public class ChessBoard {
     ChessBoard board = new ChessBoard();
     board.initialize();
 
-    System.out.println(Arrays.toString(board.parsePosition("c3")));
-    System.out.println(board.parseCoords(2,2));
-    System.out.println(board.getPiece("a1"));
-
     System.out.println(board);
-
 
     board.move("d2", "d4");
     System.out.println(board);
@@ -343,16 +338,6 @@ public class ChessBoard {
     board.move("a1", "a3");
     System.out.println(board);
     board.move("a3", "b3");
-    
-    System.out.println(board);
-    board.move("a4", "a5");
-    board.move("c2", "c4");
-    System.out.println(board);
-    board.move("f8", "g7");
-    
-    System.out.println(board);
-    board.move("g2", "g4");
-    board.move("f1", "h3");
     System.out.println(board);
   }
 }
