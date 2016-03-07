@@ -25,32 +25,44 @@ public class Rook extends ChessPiece {
     int currentColumn = getColumn();
 
     for (int i = currentRow + 1; i < 8; i++) {
-      if (board.getPiece(board.parseCoords(i, currentColumn)) == null || board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+      if (board.getPiece(board.parseCoords(i, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+      } else if (board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+        break;
       } else {
         break;
       }
     }
 
     for (int i = currentRow - 1; i >= 0; i--) {
-      if (board.getPiece(board.parseCoords(i, currentColumn)) == null || board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+      if (board.getPiece(board.parseCoords(i, currentColumn)) == null) {
         setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+      } else if ( board.getPiece(board.parseCoords(i, currentColumn)).getColor() != this.getColor() ) {
+        setOfLegalMoves.add(board.parseCoords(i, currentColumn));
+        break;
       } else {
         break;
       }
     }
 
     for (int i = currentColumn + 1; i < 8; i++) {
-      if (board.getPiece(board.parseCoords(currentRow, i)) == null || board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor() ) {
+      if (board.getPiece(board.parseCoords(currentRow, i)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow, i));
+      } else if (board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor()) {
+        setOfLegalMoves.add(board.parseCoords(currentRow, i));
+        break;
       } else {
         break;
       }
     }
 
     for (int i = currentColumn - 1; i >= 0; i--) {
-      if (board.getPiece(board.parseCoords(currentRow, i)) == null || board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor() ) {
+      if (board.getPiece(board.parseCoords(currentRow, i)) == null) {
         setOfLegalMoves.add(board.parseCoords(currentRow, i));
+      } else if (board.getPiece(board.parseCoords(currentRow, i)).getColor() != this.getColor()) {
+        setOfLegalMoves.add(board.parseCoords(currentRow, i));
+        break;
       } else {
         break;
       }

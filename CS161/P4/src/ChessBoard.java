@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * @author Connor Shea
  * @assignment P4
@@ -7,6 +5,7 @@ import java.util.ArrayList;
  * @date February 29, 2016
  * @url http://www.cs.colostate.edu/~cs161/spring16/more_assignments/P4/P4.html
  */
+import java.util.ArrayList;
 
 /**
  * 

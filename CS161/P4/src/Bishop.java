@@ -35,6 +35,9 @@ public class Bishop extends ChessPiece {
       if (currentRow + i < 8 && currentColumn + i < 8) {
         if (board.getPiece(board.parseCoords(currentRow + i, currentColumn + i)) == null) {
           setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn + i));
+        } else if (board.getPiece(board.parseCoords(currentRow + i, currentColumn + i)).getColor() != this.getColor()) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn + i));
+          break;
         } else {
           break;
         }
@@ -45,6 +48,9 @@ public class Bishop extends ChessPiece {
       if (currentRow + i < 8 && currentColumn - i >= 0) {
         if (board.getPiece(board.parseCoords(currentRow + i, currentColumn - i)) == null) {
           setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn - i));
+        } else if (board.getPiece(board.parseCoords(currentRow + i, currentColumn - i)).getColor() != this.getColor()) {
+          setOfLegalMoves.add(board.parseCoords(currentRow + i, currentColumn - i));
+          break;
         } else {
           break;
         }
@@ -55,6 +61,9 @@ public class Bishop extends ChessPiece {
       if (currentRow - i >= 0 && currentColumn - i >= 0) {
         if (board.getPiece(board.parseCoords(currentRow - i, currentColumn - i)) == null) {
           setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn - i));
+        } else if (board.getPiece(board.parseCoords(currentRow - i, currentColumn - i)).getColor() != this.getColor()) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn - i));
+          break;
         } else {
           break;
         }
@@ -65,6 +74,9 @@ public class Bishop extends ChessPiece {
       if (currentRow - i >= 0 && currentColumn + i < 8) {
         if (board.getPiece(board.parseCoords(currentRow - i, currentColumn + i)) == null) {
           setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn + i));
+        } else if (board.getPiece(board.parseCoords(currentRow - i, currentColumn + i)).getColor() != this.getColor()) {
+          setOfLegalMoves.add(board.parseCoords(currentRow - i, currentColumn + i));
+          break;
         } else {
           break;
         }
