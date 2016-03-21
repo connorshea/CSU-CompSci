@@ -30,8 +30,21 @@ public class Recursion {
   }
 
   public int[] reverseCumulative(int[] numbers) {
-    return null;
+    if (numbers.length == 1) {
+    	return numbers;
+    } else {
+    	return null;
+    }
   }
+
+  public int[] reverseCumulativeTail(int[] numbers) {
+    if (numbers.length == 1) {
+      return numbers[0];
+    } else {
+      return numbers[0] + reverseCumulativeTail(numbers[0]);
+    }
+  }
+
 
   public Pair search2D(int[][] data, int element) {
 	return null;
@@ -69,9 +82,21 @@ public class Recursion {
     System.out.print("reverseCumulative(numbers) = ");
     System.out.println(Arrays.toString(r.reverseCumulative(numbers)));
 
+    if (Arrays.toString(r.reverseCumulative(numbers)).equals("[24, 19, 13, 6, 4, 1]")) {
+      System.out.println("true");
+    } else {
+      System.out.println("false");
+    }
 
     int[][] table = new int[][] { {3, 2, 8}, {3, 5, 6} };
     System.out.println(r.search2D(table, 5));
+
+    if (r.search2D(table, 5).toString().equals("(2, 2)")) {
+      System.out.println("true");
+    } else {
+      System.out.println("false");
+    }
+
     System.out.println(r.search2D(table, 10));
   }
 }
