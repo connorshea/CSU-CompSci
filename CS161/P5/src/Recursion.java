@@ -59,9 +59,51 @@ public class Recursion {
     }
   }
 
-
+  // if/else statements looping col versus row
   public Pair search2D(int[][] data, int element) {
-  	return null;
+  	Pair pair = new Pair(0, 0);
+  	
+    pair = searchHelper(data, pair, element);
+
+    if (pair == null) {
+      return null;
+    } else if (data[pair.row][pair.column] == element) {
+      return pair;
+    } else {
+    	return null;
+    }
+  }
+
+  // "Drills down" until we find the matching element, then sends the pair up
+  // through every level to the top.
+  public Pair searchHelper(int[][] data, Pair pair, int element) {
+    // If last column and last row, the element was not found and null should
+    // be returned.
+    if (pair.row == data.length - 1 && pair.column == data[pair.row].length - 1) {
+      return null;
+
+    // If the item at the pair of row and column is the element we're looking
+    // for, return it.
+    } else if (data[pair.row][pair.column] == element) {
+      return pair;
+
+    // If last column, iterate row.
+    } else if (pair.column == data[pair.row].length - 1) {
+      pair.row += 1;
+      pair.column = 0;
+      pair = searchHelper(data, pair, element);
+      return pair;
+
+    // If not last column, iterate column.
+    } else if (pair.column < data[pair.row].length - 1) {
+      pair.column += 1;
+      pair = searchHelper(data, pair, element);
+      return pair;
+
+    // Quit Eclipse's complaining.
+    } else {
+    	return null;
+    }
   }
 
   /*
@@ -103,15 +145,35 @@ public class Recursion {
       System.out.println("false");
     }
 
-    int[][] table = new int[][] { {3, 2, 8}, {3, 5, 6} };
-    System.out.println(r.search2D(table, 5));
+    int[][] table1 = new int[][] {
+      {3, 2, 8},
+      {3, 5, 6}
+    };
 
-    if (r.search2D(table, 5).toString().equals("(2, 2)")) {
+    int[][] table2 = new int[][] { 
+      {3, 2, 8, 5, 61},
+      {3, 5, 6},
+      {10, 42, 53, 45}
+    };
+
+    System.out.println(r.search2D(table1, 5));
+    System.out.println(r.search2D(table2, 5));
+
+    Pair pair1 = r.search2D(table1, 5);
+    Pair pair2 = r.search2D(table2, 5);
+    
+    if (pair1.toString().equals("(1, 1)")) {
       System.out.println("true");
     } else {
       System.out.println("false");
     }
+    
+    if (pair2.toString().equals("(0, 3)")) {
+        System.out.println("true");
+      } else {
+        System.out.println("false");
+      }
 
-    System.out.println(r.search2D(table, 10));
+    System.out.println(r.search2D(table1, 10));
   }
 }
