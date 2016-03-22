@@ -83,7 +83,7 @@ public class Recursion {
       return null;
 
     // If the item at the pair of row and column is the element we're looking
-    // for, return it.
+    // to find, return it.
     } else if (data[pair.row][pair.column] == element) {
       return pair;
 
@@ -128,19 +128,39 @@ public class Recursion {
   public static void main(String[] args) {
     Recursion r = new Recursion();
     System.out.println("encrypt(View!) = " + r.encrypt("View!"));
+    
     if (r.encrypt("View!").equals("UWhjdfvx \"")) {
       System.out.println("true");
     } else {
       System.out.println("false");
     }
 
-    int[] numbers = new int[] {5, 6, 7, 2, 3, 1};
+    if (r.encrypt("BCD").equals("ACBDCE")) {
+      System.out.println("true");
+    } else {
+      System.out.println("false");
+    }
+
+    int[] numbers = new int[] {5, 6, 7, 2, 3};
     System.out.print("reverseCumulative(numbers) = ");
     int[] resultArray = r.reverseCumulative(numbers);
     System.out.println(Arrays.toString(resultArray));
     		
-    if (Arrays.toString(resultArray).equals("[24, 19, 13, 6, 4, 1]")) {
+    if (Arrays.toString(resultArray).equals("[23, 18, 12, 5, 3]")) {
     	System.out.println("true");
+    } else {
+      System.out.println("false");
+    }
+
+    int[] numbers2 = new int[] {7, 9, 5, 10};
+
+
+    System.out.print("reverseCumulative(numbers2) = ");
+    int[] resultArray2 = r.reverseCumulative(numbers2);
+    System.out.println(Arrays.toString(resultArray2));
+
+    if (Arrays.toString(resultArray2).equals("[31, 24, 15, 10]")) {
+      System.out.println("true");
     } else {
       System.out.println("false");
     }
