@@ -8,6 +8,10 @@
 import java.util.Arrays;
 
 public class Recursion {
+
+  // Each character in the provided string will be changed to two characters,
+  // the character before it in the ASCII table and the character after it.
+  // e.g. "BCD" becomes "ACBDCE"
   public String encrypt(String s) {
   	if (s.equals(null)) {
       return null;
@@ -29,25 +33,35 @@ public class Recursion {
     }
   }
 
+  // Each item in the array is added recursively to the element following it.
+  // e.g. [5, 6, 7, 2, 3, 1] becomes [24, 19, 13, 6, 4, 1].
   public int[] reverseCumulative(int[] numbers) {
-    if (numbers.length == 1) {
-    	return numbers;
-    } else {
-    	return null;
-    }
+    // Started from the bottom.
+    reverseCumulativeHelper(numbers, 0);
+    // Now we're here.
+    return numbers;
   }
 
-  public int[] reverseCumulativeTail(int[] numbers) {
-    if (numbers.length == 1) {
-      return numbers[0];
+  // Arrays are pass-by-reference so modifications made here will be made in
+  // the original array variable passed from the above function.
+  private int reverseCumulativeHelper(int[] numbers, int counter) {
+    // If the counter is equal to the length of the numbers array minus 1,
+    // return it since it's the last item in the array and therefore won't
+    // have any items following it.
+    if (counter == numbers.length - 1) {
+      return numbers[counter];
     } else {
-      return numbers[0] + reverseCumulativeTail(numbers[0]);
+      // If it's not the last item in the array, it should be summed
+      // recursively with each following item.
+      numbers[counter] += reverseCumulativeHelper(numbers, counter + 1);
+      // Return the number that's wanted.
+      return numbers[counter];
     }
   }
 
 
   public Pair search2D(int[][] data, int element) {
-	return null;
+  	return null;
   }
 
   /*
@@ -80,10 +94,11 @@ public class Recursion {
 
     int[] numbers = new int[] {5, 6, 7, 2, 3, 1};
     System.out.print("reverseCumulative(numbers) = ");
-    System.out.println(Arrays.toString(r.reverseCumulative(numbers)));
-
-    if (Arrays.toString(r.reverseCumulative(numbers)).equals("[24, 19, 13, 6, 4, 1]")) {
-      System.out.println("true");
+    int[] resultArray = r.reverseCumulative(numbers);
+    System.out.println(Arrays.toString(resultArray));
+    		
+    if (Arrays.toString(resultArray).equals("[24, 19, 13, 6, 4, 1]")) {
+    	System.out.println("true");
     } else {
       System.out.println("false");
     }
