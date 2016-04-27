@@ -24,25 +24,26 @@ public class Recit {
 		}
 		
 		//OUTPUTS THE TOTAL NUMBER OF PAGES ADDED TOGETHER
-//		System.out.println("Expected total pages: 3740");
-//		System.out.println("Total number of pages: " + lbl.totalPages());		
+		System.out.println("Expected total pages: 3740");
+		System.out.println("Total number of pages: " + lbl.totalPages() + "\n");		
 		
 		//ADDS NEW BOOK AT INDEX 4
-//		lbl.add(new Book("Alex Cross, Run", "James Peterson", 432), 4);
-//		System.out.println(lbl);
+		lbl.add(new Book("Alex Cross, Run", "James Peterson", 432), 4);
+		System.out.println(lbl);
 		
 		//ADDS NEW BOOK AT THE END OF THE LINKED LIST
-//		lbl.add(new Book("A Dance With Dragons", "George R. R. Martin", 1040));
-//		System.out.println(lbl);
+		lbl.add(new Book("A Dance With Dragons", "George R. R. Martin", 1040));
+		System.out.println(lbl);
 		
 		//REMOVES THE SIXTH BOOK IN THE LINKED LIST -> Gone Girl
-//		System.out.println("Removed from linked list: " + lbl.remove(6));
+		System.out.println("Removed from linked list: " + lbl.remove(6));
 
 		//REMOVES Starting Now FROM THE LIST
-//		System.out.println("Removed from linked list: " + lbl.remove(new Book("Starting Now", "Debbie Macomber", 352)));
+		System.out.println("Removed from linked list: " + lbl.remove(new Book("Starting Now", "Debbie Macomber", 352)));
+		System.out.println(lbl);
 
 		//REMOVES THE FIRST BOOK IN THE LINKED LIST -> Manuscript Found
-//		System.out.println("Removed from linked list: " + lbl.remove(0));
+		System.out.println("Removed from linked list: " + lbl.remove(0));
 		
 		//REMOVES GONE GIRL FROM THE LIST -> null
 //		System.out.println("Removed from linked list: " + lbl.remove(new Book("Gone Girl", "Gillian Flynn", 432)));
