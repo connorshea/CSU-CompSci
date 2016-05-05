@@ -50,7 +50,7 @@ public class Set extends LinkedList implements ISet {
 		int iterator = 0;
 
 		while (current != null) {
-			array[iterator] = current;
+			array[iterator] = current.getItem();
 			iterator++;
 			current = current.getNext();
 		}
@@ -86,7 +86,7 @@ public class Set extends LinkedList implements ISet {
 
 		while (current != null) {
 			if (other.in(current) && this.in(current)) {
-				set.add(current);
+				set.add(current.getItem());
 			}
 
 			current = current.getNext();
@@ -105,7 +105,7 @@ public class Set extends LinkedList implements ISet {
 		ISet set = other;
 
 		while (current != null) {
-			set.add(current);
+			set.add(current.getItem());
 			current = current.getNext();
 		}
 
@@ -119,7 +119,7 @@ public class Set extends LinkedList implements ISet {
     System.out.println("After creating set s1 from array:\n" + s1);
     System.out.println("Printing array from s1:\n"+ Arrays.toString(s1.toArray()));
 
-    String[] names2 = {};
+    String[] names2 = {"Chris"};
     s1 = tester.fromArray(names2);
     System.out.println("Printing array from s1:\n"+ Arrays.toString(s1.toArray()));
     String[] otherNames = {"Gareth", "Alex", "Swapnil", "Chris", "Asa"};
