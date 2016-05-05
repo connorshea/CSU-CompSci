@@ -11,19 +11,15 @@ public class Set extends LinkedList implements ISet {
 	// use its functionality using super.
 	@Override
 	public void add(Object item) {
-		Node current = head;
+		boolean duplicate = false;
 
-		for (int i = 0; i < size; i++) {
-			if (current == item) {
-				return;
-			}
-
-			if (i + 1 != size) {
-				current = current.getNext();
-			}
+		if (in(item)) {
+			duplicate = true;
 		}
-
-		super.add(item);
+		
+		if (!duplicate) {
+			super.add(item);
+		}
 	}
 
 	// This method returns true if the item is in the set, false otherwise.
@@ -32,7 +28,7 @@ public class Set extends LinkedList implements ISet {
 		Node current = head;
 
 		for (int i = 0; i < size; i++) {
-			if (current == item) {
+			if (current.toString().equals(item.toString())) {
 				return true;
 			}
 
@@ -60,65 +56,12 @@ public class Set extends LinkedList implements ISet {
 	// duplicates of an item are present in the array, then ignore all the
 	// occurrences of this item after the first one.
 	@Override
-	public ISet fromArray(Object[] elements) {
-		Object[] tempArray = new Object[size];
-
-		Node current = head;
-
-		for (int i = 0; i < size; i++) {
-			tempArray[i] = current;
-
-			if (i + 1 != size) {
-				current = current.getNext();
-			}
+	public ISet fromArray(Object[] elements) {		
+		for (int i = 0; i < elements.length; i++) {
+			add(elements[i]);
 		}
 
-		int numUnique = size;
-
-		// Iterates through the array.
-		for (int i = 0; i < size; i++) {
-			// Checks for duplicates starting from the element the parent loop is
-			// currently at. This prevents the numUnique from becoming too low due
-			// to duplicates.
-			// 
-			// With an array [A, B, A, C], the first iterator goes to A, checks
-			// all four elements, subtracts one from numUnique for the third element
-			// which is equal to the element currently being checked. B detects no
-			// duplicates and nothing happens. The second A (at array[2]) doesn't check
-			// previous elements and therefore doesn't detect a duplicate.
-			for (int j = i; j < size; j++) {
-				if (tempArray[i] == tempArray[j] && i != j) {
-					numUnique--;
-				}
-			}
-		}
-
-		Object[] array = new Object[numUnique];
-		int iterator = 0;
-
-		for (int i = 0; i < size; i++) {
-			for (int j = i; j < size; j++) {
-				if (tempArray[i] == tempArray[j] && i != j) {
-					continue;
-				} else {
-					array[iterator] = tempArray[j];
-					iterator++;
-				}
-			}
-		}
-
-
-
-		if (array.length == 0) {
-			ISet set = null;
-		} else {
-			ISet set = array[0];
-			for (int i = 0; i < array.length; i++) {
-				set.add(array[i]);
-			}
-		}
-
-		return set;
+		return this;
 	}
 
 	// This method returns a new set that contains only those items that are
