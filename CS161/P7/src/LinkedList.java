@@ -148,12 +148,6 @@ public class LinkedList {
 		ll.remove("Asa");
 		System.out.println("List after removing all:\n" + ll);
 		System.out.println(ll.remove("Chris"));
-
-		ISet set = new Set();
-		Object[] array = {"Asa", "Connor", "Kegan", "Connor"};
-
-		set = set.fromArray(array);
-		System.out.println("List from array:\n" + set);
 		
 	}
 }

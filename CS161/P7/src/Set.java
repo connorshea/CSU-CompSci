@@ -4,6 +4,8 @@
  * Assignment: P7
  */
 
+import java.util.Arrays;
+
 public class Set extends LinkedList implements ISet {
 
 	// This method adds an item to the set. A duplicate item is not added.
@@ -11,13 +13,7 @@ public class Set extends LinkedList implements ISet {
 	// use its functionality using super.
 	@Override
 	public void add(Object item) {
-		boolean duplicate = false;
-
-		if (in(item)) {
-			duplicate = true;
-		}
-		
-		if (!duplicate) {
+		if (!in(item)) {
 			super.add(item);
 		}
 	}
@@ -27,14 +23,12 @@ public class Set extends LinkedList implements ISet {
 	public boolean in(Object item) {
 		Node current = head;
 
-		for (int i = 0; i < size; i++) {
+		while (current != null) {
 			if (current.toString().equals(item.toString())) {
 				return true;
 			}
 
-			if (i + 1 != size) {
-				current = current.getNext();
-			}
+			current = current.getNext();
 		}
 
 		return false;
@@ -46,7 +40,22 @@ public class Set extends LinkedList implements ISet {
 	// contain duplicates.
 	@Override
 	public Object[] toArray() {
-		return null;
+
+		if (size == 0) {
+			return new Object[0];
+		}
+
+		Node current = head;
+		Object[] array = new Object[size];
+		int iterator = 0;
+
+		while (current != null) {
+			array[iterator] = current;
+			iterator++;
+			current = current.getNext();
+		}
+
+		return array;
 	}
 
 	// This method creates and returns a new set from the items contained in
@@ -56,12 +65,14 @@ public class Set extends LinkedList implements ISet {
 	// duplicates of an item are present in the array, then ignore all the
 	// occurrences of this item after the first one.
 	@Override
-	public ISet fromArray(Object[] elements) {		
+	public ISet fromArray(Object[] elements) {
+		ISet set = new Set();
+
 		for (int i = 0; i < elements.length; i++) {
-			add(elements[i]);
+			set.add(elements[i]);
 		}
 
-		return this;
+		return set;
 	}
 
 	// This method returns a new set that contains only those items that are
@@ -70,8 +81,18 @@ public class Set extends LinkedList implements ISet {
 	// unchanged.
 	@Override
 	public ISet intersection(ISet other) {
-		// TODO Auto-generated method stub
-		return null;
+		Node current = head;
+		ISet set = new Set();
+
+		while (current != null) {
+			if (other.in(current) && this.in(current)) {
+				set.add(current);
+			}
+
+			current = current.getNext();
+		}
+
+		return set;
 	}
 
 	// This method returns a new set that contains the union of the items that
@@ -80,8 +101,35 @@ public class Set extends LinkedList implements ISet {
 	// set does not matter. The other set and "this" set remain unchanged.
 	@Override
 	public ISet union(ISet other) {
-		// TODO Auto-generated method stub
-		return null;
+		Node current = head;
+		ISet set = other;
+
+		while (current != null) {
+			set.add(current);
+			current = current.getNext();
+		}
+
+		return set;
+	}
+
+	public static void main(String[] args) {
+    ISet tester = new Set();
+    String[] names = {"Alex", "Hajar", "Asa", "Sudipto", "Koen", "Asa"};
+    ISet s1 = tester.fromArray(names);
+    System.out.println("After creating set s1 from array:\n" + s1);
+    System.out.println("Printing array from s1:\n"+ Arrays.toString(s1.toArray()));
+
+    String[] names2 = {};
+    s1 = tester.fromArray(names2);
+    System.out.println("Printing array from s1:\n"+ Arrays.toString(s1.toArray()));
+    String[] otherNames = {"Gareth", "Alex", "Swapnil", "Chris", "Asa"};
+    ISet s2 = tester.fromArray(otherNames);
+    System.out.println("After creating set s2 from array:\n" + s2);
+    ISet s3 = s1.intersection(s2);
+    System.out.println("Intersection of s2 and s3:\n" + s3);
+    ISet s4 = s1.union(s2);
+    System.out.println("Union of s2 and s3:\n" + s4);
+
 	}
 
 }
