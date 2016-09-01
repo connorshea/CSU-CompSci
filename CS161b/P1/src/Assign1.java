@@ -52,17 +52,17 @@ public class Assign1 {
 	 * Deal with all cases!!         
 	 */
 	public boolean isOdd(int n) {
-    if (n < 0) {
-    	n = n * -1;
-    }
+		if (n < 0) {
+			n = n * -1;
+		}
 
-    if (n % 2 == 0) {
-    	return false;
-    } else if (n % 2 == 1) {
-    	return true;
-    } else {
-    	return true;
-    }
+		if (n % 2 == 0) {
+			return false;
+		} else if (n % 2 == 1) {
+			return true;
+		} else {
+			return true;
+		}
 	}
 	
 	/**
@@ -78,9 +78,9 @@ public class Assign1 {
 	 *  etc.
 	 */
 	public void print3Tuples(int n) {
-            // Replace this body with your solution
-	    System.out.println("print3Tuples NOT IMPLEMENTED YET");
-	    // to print a 3-tuple call print3Tuple(a,b,c);
+    // Replace this body with your solution
+    System.out.println("print3Tuples NOT IMPLEMENTED YET");
+    // to print a 3-tuple call print3Tuple(a,b,c);
 	}
 	
 	/**
@@ -98,9 +98,9 @@ public class Assign1 {
 	 * etc 
 	 */
 	public void print3Subsets(int n) {
-            // Replace this body with your solution
+		// Replace this body with your solution
 		System.out.println("print3Subsets NOT IMPLEMENTED YET");
-	    // to print a 3-set call print3Set(a,b,c);
+		// to print a 3-set call print3Set(a,b,c);
 	}
 
 	
@@ -124,10 +124,45 @@ public class Assign1 {
 	 * shuffle({1,2,3,4,5},{10,20}) returns
 	 *   {1,10,2,20,3,4,5}
 	 */
-	public int[] shuffle(int[]A, int[]B){
-            // Replace this body with your solution
-		System.out.println("shuffle NOT IMPLEMENTED YET");
-		int[] out = {};
+	public int[] shuffle(int[] A, int[] B){
+    // Replace this body with your solution
+		int[] out = new int[A.length + B.length];;
+
+		int iterator = 0;
+		int iteratorA = 0;
+		int iteratorB = 0;
+
+		boolean smallerFinished = false;
+
+		// Adds an int to the array for every spot in the "out" array.
+		// It runs until either A or B have finished, then only uses values 
+		// from the longer array until the loop ends.
+		for (int i = 0; i < out.length; i++) {
+			if ((iterator + 1) % 2 == 1 && iteratorA < A.length && !smallerFinished) {
+				out[iterator] = A[iteratorA];
+				// System.out.println("A[" + iteratorA + "]: " + A[iteratorA]);
+				iterator++;
+				iteratorA++;
+			} else if ((i + 1) % 2 == 0 && iteratorB < B.length && !smallerFinished) {
+				out[iterator] = B[iteratorB];
+				// System.out.println("B[" + iteratorB + "]: " + B[iteratorB]);
+				iterator++;
+				iteratorB++;
+			} else if (iteratorA == A.length || iteratorB == B.length) {
+				smallerFinished = true;
+				
+				if (iteratorA == A.length && iteratorB != B.length) {
+					out[iterator] = B[iteratorB];
+					iteratorB++;
+				} else if (iteratorB == B.length && iteratorA != A.length) {
+					out[iterator] = A[iteratorA];
+					iteratorA++;
+				}
+
+				iterator++;
+			}
+		}
+		
 		return out;
 	}	
 	
@@ -145,20 +180,19 @@ public class Assign1 {
 	 *       res contains cumulative sums
 	 */
 	public int[] makeCumul(int[] in){
+    // Replace this body with your solution
 		int[] out = new int[in.length];
 
 		for (int i = 0; i < in.length; i++) {
 			out[i] = in[i];
-			System.out.println("Out: " + out[i] + ", In: " + in[i] + ", i: " + i);
 
 			for (int j = i - 1; j >= 0; j--) {
 				out[i] += in[j];
-				System.out.println("Inner loop");
-				System.out.println("Out: " + out[i] + ", In: " + in[i] + ", i: " + i + ", j: " + j);
 			}
 		}
-    
+		
 		return out;
+
 	}
 	
 	/**
@@ -168,14 +202,17 @@ public class Assign1 {
 		Assign1 test = new Assign1(true);
 		
 		// testing isOdd
-		if(test.isOdd(1))
+		if (test.isOdd(1)) {
 			System.out.println("odd 1 OK");
-		else
+		} else {
 			System.out.println("odd 1 ERROR");
-		if(test.isOdd(0))
+		}
+
+		if (test.isOdd(0)) {
 			System.out.println("odd 0 ERROR");
-		else
+		} else {
 			System.out.println("odd 0 OK");
+		}
 	}
 
 }
