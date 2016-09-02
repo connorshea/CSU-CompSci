@@ -78,9 +78,13 @@ public class Assign1 {
 	 *  etc.
 	 */
 	public void print3Tuples(int n) {
-    // Replace this body with your solution
-    System.out.println("print3Tuples NOT IMPLEMENTED YET");
-    // to print a 3-tuple call print3Tuple(a,b,c);
+    for (int a = 0; a < n; a++) {
+    	for (int b = 0; b < n; b++) {
+    		for (int c = 0; c < n; c++) {
+    			print3Tuple(a, b, c);
+    		}
+    	}
+    }
 	}
 	
 	/**
@@ -98,9 +102,15 @@ public class Assign1 {
 	 * etc 
 	 */
 	public void print3Subsets(int n) {
-		// Replace this body with your solution
-		System.out.println("print3Subsets NOT IMPLEMENTED YET");
-		// to print a 3-set call print3Set(a,b,c);
+    for (int a = 0; a < n; a++) {
+    	for (int b = 0; b < n; b++) {
+    		for (int c = 0; c < n; c++) {
+    			if (a != b && a != c && b != c && c > b && b > a) {
+						print3Set(a, b, c);
+					}
+				}
+			}
+		}
 	}
 
 	
