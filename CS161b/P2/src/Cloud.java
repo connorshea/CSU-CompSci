@@ -150,7 +150,6 @@ public class Cloud {
     return minDistance;
   }
 
-  //TODO Implement Cloud.crop
   /**
    * 
    * @param p1 
@@ -163,9 +162,38 @@ public class Cloud {
   public void crop(Point p1, Point p2) {
     for (int i = 0; i < this.size(); i++) {
       Point p = this.points.get(i);
-
-      
-
+      // If the X values are the same, only compare the Y values.
+      if (p1.getX() == p2.getX()) {
+        // If the X value of p isn't the same as p1, remove it.
+        if (p.getX() == p1.getX()) {
+          if ((p.getY() >= p1.getY() && p.getY() <= p2.getY()) || (p.getY() <= p1.getY() && p.getY() >= p2.getY())) {
+            continue;
+          } else {
+            this.points.remove(i);
+          }
+        } else {
+          this.points.remove(i);
+        }
+      // If the Y values are the same, only compare the X values.
+      } else if (p1.getY() == p2.getY()) {
+        // If the Y value of p isn't the same as p1, remove it.
+        if (p.getY() == p1.getY()) {
+          if ((p.getX() >= p1.getX() && p.getX() <= p2.getX()) || (p.getX() <= p1.getX() && p.getX() >= p2.getX())) {
+            continue;
+          } else {
+            this.points.remove(i);
+          }
+        } else {
+          this.points.remove(i);
+        }
+      // Otherwise do it the normal way.
+      } else {
+    	  if ((p.getX() >= p1.getX() && p.getX() <= p2.getX()) || (p.getX() <= p1.getX() && p.getX() >= p2.getX()) && ((p.getY() >= p1.getY() && p.getY() <= p2.getY()) || (p.getY() <= p1.getY() && p.getY() >= p2.getY()))) {
+    		  continue;
+    	  } else {
+          this.points.remove(i);
+        }
+      }
     }
   }
   
@@ -244,6 +272,11 @@ public class Cloud {
     cloud1.addPoint(p);
     minD = cloud1.minDist();
     System.out.printf("min dist in cloud1: %5.3f \n",  minD);
+
+    System.out.println("cloud 1: " + cloud);
+    cloud.crop(p31, p33);
+    System.out.println("CROPPED");
+    System.out.println("cloud 1: " + cloud);
 
   }
 
