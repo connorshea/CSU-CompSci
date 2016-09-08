@@ -20,35 +20,39 @@ public class Frame {
 	// to: destination peg
 	private int to;
 
-	public Frame(int state, int n, int from, int to){
-    // initialize state, n, from, to
+	public Frame(int state, int n, int from, int to) {
+		this.state = state;
+		this.n = n;
+		this.from = from;
+		this.to = to;
 	}
 	
-	public int getN(){
-		return 0;
+	public int getN() {
+		return this.n;
 	}
 	
-	public int getFrom(){
-		return 0;
+	public int getFrom() {
+		return this.from;
 	}
 	
-	public int getTo(){
-		return 0;
+	public int getTo() {
+		return this.to;
 	}
 	
-	public int getState(){
-		return 0;
+	public int getState() {
+		return this.state;
 	}
 	
-	public void setState(int s){
+	public void setState(int s) {
+		this.state = s;
 	}
 	
-	public String toString(){
+	public String toString() {
 		return "[s:" + state + ", n:" + n + ", f:" + from + ", t:" + to + "]";
 	}
 		
-	public static void main(String[] args){
-		Frame f = new Frame(0,3,1,3);
+	public static void main(String[] args) {
+		Frame f = new Frame(0, 3, 1, 3);
 		System.out.println(f);
 		f.setState(1);
 		System.out.println("[" + f.getState() + ", " + f.getN() + ", " + f.getFrom()  + ", " + f.getTo()+"]");
