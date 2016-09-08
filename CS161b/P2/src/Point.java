@@ -72,7 +72,7 @@ public class Point {
 			diffY = diffY * -1;
 		}
 
-		if (diffY < EPSILON && diffX < EPSILON) {
+		if (diffY < Point.EPSILON && diffX < Point.EPSILON) {
 			return true;
 		}
 
@@ -103,14 +103,19 @@ public class Point {
 	
 
 	//TODO Implement Point.euclidDist
+	// the square root of the sum of (x - p.x) squared and (y - p.y) squared.
 	/**
 	 * 
 	 * @param p 
 	 * @return Euclidean distance of this point to point p
 	 */
 	public double euclidDist(Point p) {
-		System.out.println("euclidDist not implemented yet");
-		return 0.0;
+		double sumX = this.x - p.getX();
+		double sumY = this.y - p.getY();
+		double expX = Math.pow(sumX, 2.0);
+		double expY = Math.pow(sumY, 2.0);
+
+		return Math.sqrt(expX + expY);
   }
 
 	/**
@@ -129,12 +134,12 @@ public class Point {
 		System.out.println("EPSILON: " + Point.EPSILON);
 		
 		Point origin = new Point();
-		Point p1 = new Point(0.0, 4.0);
-		Point p2 = new Point(3.0000001, 3.9999999);
-		Point p3 = new Point(3.0, 4.0);
+		Point p1 = new Point(0.0,4.0);
+		Point p2 = new Point(3.0000001,3.9999999);
+		Point p3 = new Point(3.0,4.0);
 		
-		Point p4 = new Point(0.0, 5.0);
-		Point p5 = new Point(12.0, 0.0);		
+		Point p4 = new Point(0.0,5.0);
+		Point p5 = new Point(12.0,0.0);	
 
 		System.out.println("origin: " + origin);
 		System.out.println("p1: " + p1);
