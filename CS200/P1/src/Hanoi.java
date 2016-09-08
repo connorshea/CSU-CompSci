@@ -8,6 +8,7 @@ public class Hanoi {
 	// constructor sets debug: 
 	// if debug is true, iterative Hanoi print rts every time it encounters a frame 
 	public Hanoi(boolean debug) {
+		this.debug = debug;
 	}
 
 	// implement
@@ -43,7 +44,21 @@ public class Hanoi {
 				System.out.println("RTS: " + rts);
 			}
 			
-			
+			Frame start = (Frame) rts.pop();
+			if (start.getN() == 0) {
+				// System.out.println("Doing nothing.");
+			} else if (start.getState() == 0) {
+				start.setState(1);
+				rts.push(new Frame(1, start.getN(), start.getFrom(), start.getTo()));
+				rts.push(new Frame(0, start.getN() - 1, start.getFrom(), 6 - start.getFrom() - start.getTo()));
+			} else if (start.getState() == 1) {
+				System.out.println("Move disk " + start.getN() + " from " + start.getFrom() + " to " + start.getTo());
+				rts.push(new Frame(2, start.getN(), start.getFrom(), start.getTo()));
+				rts.push(new Frame(0, start.getN() - 1, 6 - start.getFrom() - start.getTo(), start.getTo()));
+				this.count += 1;
+			} else if (start.getState() == 2) {
+				// System.out.println("Doing nothing.");
+			}
 		}
 	}
 
