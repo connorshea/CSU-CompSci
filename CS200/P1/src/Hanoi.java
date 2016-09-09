@@ -52,7 +52,7 @@ public class Hanoi {
 				rts.push(new Frame(1, start.getN(), start.getFrom(), start.getTo()));
 				rts.push(new Frame(0, start.getN() - 1, start.getFrom(), 6 - start.getFrom() - start.getTo()));
 			} else if (start.getState() == 1) {
-				System.out.println("Move disk " + start.getN() + " from " + start.getFrom() + " to " + start.getTo());
+				System.out.println("move disk " + start.getN() + " from " + start.getFrom() + " to " + start.getTo());
 				rts.push(new Frame(2, start.getN(), start.getFrom(), start.getTo()));
 				rts.push(new Frame(0, start.getN() - 1, 6 - start.getFrom() - start.getTo(), start.getTo()));
 				this.count += 1;
