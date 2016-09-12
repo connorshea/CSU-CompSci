@@ -160,41 +160,49 @@ public class Cloud {
    *  
    */
   public void crop(Point p1, Point p2) {
+    // System.out.println("p1: (" + p1.getX() + ", " + p1.getY() + ")");
+    // System.out.println("p2: (" + p2.getX() + ", " + p2.getY() + ")");
+    double top = 0;
+    double bottom = 0;
+    double right = 0;
+    double left = 0;
+
+    ArrayList<Point> croppedCloud = new ArrayList<Point>();
+
+    if (p1.getX() > p2.getX()) {
+      right = p1.getX();
+      left = p2.getX();
+    } else {
+      right = p2.getX();
+      left = p1.getX();
+    }
+
+    if (p1.getY() > p2.getY()) {
+      top = p1.getY();
+      bottom = p2.getY();
+    } else {
+      top = p2.getY();
+      bottom = p1.getY();
+    }
+
     for (int i = 0; i < this.size(); i++) {
       Point p = this.points.get(i);
-      // If the X values are the same, only compare the Y values.
-      if (p1.getX() == p2.getX()) {
-        // If the X value of p isn't the same as p1, remove it.
-        if (p.getX() == p1.getX()) {
-          if ((p.getY() >= p1.getY() && p.getY() <= p2.getY()) || (p.getY() <= p1.getY() && p.getY() >= p2.getY())) {
-            continue;
-          } else {
-            this.points.remove(i);
-          }
-        } else {
-          this.points.remove(i);
-        }
-      // If the Y values are the same, only compare the X values.
-      } else if (p1.getY() == p2.getY()) {
-        // If the Y value of p isn't the same as p1, remove it.
-        if (p.getY() == p1.getY()) {
-          if ((p.getX() >= p1.getX() && p.getX() <= p2.getX()) || (p.getX() <= p1.getX() && p.getX() >= p2.getX())) {
-            continue;
-          } else {
-            this.points.remove(i);
-          }
-        } else {
-          this.points.remove(i);
-        }
-      // Otherwise do it the normal way.
-      } else {
-    	  if ((p.getX() >= p1.getX() && p.getX() <= p2.getX()) || (p.getX() <= p1.getX() && p.getX() >= p2.getX()) && ((p.getY() >= p1.getY() && p.getY() <= p2.getY()) || (p.getY() <= p1.getY() && p.getY() >= p2.getY()))) {
-    		  continue;
-    	  } else {
-          this.points.remove(i);
-        }
+      boolean isInsideArea = true;
+
+      if (p.getY() > top || p.getY() < bottom) {
+        isInsideArea = false;
+      }
+
+      if (p.getX() > right || p.getX() < left) {
+        isInsideArea = false;
+      }
+
+      if (isInsideArea) {
+        croppedCloud.add(this.points.get(i));
       }
     }
+
+    this.points = croppedCloud;
   }
   
 
@@ -275,7 +283,6 @@ public class Cloud {
 
     System.out.println("cloud 1: " + cloud);
     cloud.crop(p31, p33);
-    System.out.println("CROPPED");
     System.out.println("cloud 1: " + cloud);
 
   }
